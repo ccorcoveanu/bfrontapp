@@ -1,7 +1,7 @@
 {
-  "name": "js-boilerplate",
+  "name": "bfrontapp",
   "version": "1.0.0",
-  "description": "My ES6, SASS boilerplate",
+  "description": "Front end application for bedag app",
   "main": "build.js",
   "scripts": {
     "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build --hot",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ccorcoveanu/js-boilerplate.git"
+    "url": "git+https://github.com/ccorcoveanu/bfrontapp.git"
   },
   "author": "Cristi Corcoveanu <cristi.corcoveanu@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ccorcoveanu/js-boilerplate/issues"
+    "url": "https://github.com/ccorcoveanu/bfrontapp/issues"
   },
-  "homepage": "https://github.com/ccorcoveanu/js-boilerplate#readme",
+  "homepage": "https://github.com/ccorcoveanu/bfrontapp#readme",
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-eslint": "^4.1.6",
