@@ -25,7 +25,8 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: [ 'style', 'css?sourceMap', 'sass?sourceMap' ]
-      }
+      },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
     ]
   },
   plugins: [

@@ -1,0 +1,24 @@
+{
+  "name": "bfrontapp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ccorcoveanu/bfrontapp#readme",
+  "description": "Front end application for bedag app",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "Cristi Corcoveanu <cristi.corcoveanu@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "breakpoint-sass": "~2.7.0"
+  }
+}

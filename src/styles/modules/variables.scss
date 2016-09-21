@@ -1,0 +1,23 @@
+// Name: Gulp variables
+// Author: Cristi Corcoveanu (cristi.corcoveanu@gmail.com)
+
+// !Colors
+// ==|=========================================================================
+
+
+
+// !Typography
+// ==|=========================================================================
+$font_family-default: 'Penisi', cursive;
+
+$font-size-base: 100%;
+$font-size-base-px: 16px;
+
+// ! Remify & Emify values
+// ==|=========================================================================
+@function rem($value) {
+  @return #{$value/16}rem;
+}
+@function em($value) {
+  @return #{$value/16}em;
+}
