@@ -1,0 +1,77 @@
+.icon {
+  display: inline-block;
+
+  &.-hamburger {
+    // Default single line style
+    backface-visibility: hidden;
+    background-color: $color-fill-green;
+    height: rem(5);
+    margin-top: rem(10);
+    margin-bottom: rem(10);
+    position: relative;
+    text-align: initial;
+    transition: all .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    width: rem(30);
+
+    // Copy hamburger line style to before and after
+    &:before,
+    &:after {
+      backface-visibility: hidden;
+      background-color: $color-fill-green;
+      height: rem(5);
+      text-align: initial;
+      transition: all .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+      width: rem(30);
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 0;
+
+      // Animate
+      transition-duration: .3s, .3s;
+      transition-delay: .3s, 0s;
+    }
+
+    // Position top and bottom lines
+    &:before {
+      transition-property: top, transform;
+      top: rem(-10);
+    }
+
+    &:after {
+      transition-property: bottom, transform;
+      bottom: rem(-10);
+    }
+
+    .hamburger--link:hover & {
+      box-shadow: 0 rem(2) rem(4) 0  rgba(1, 1, 1, .2);
+      &:before,
+      &:after {
+        box-shadow: 0 rem(2) rem(4) 0  rgba(1, 1, 1, .2);
+      }
+    }
+
+    // Toggle effect on activating parent link
+    .hamburger--link.-is-active & {
+      background: none;
+      box-shadow: none;
+
+      &:before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        bottom: 0;
+        transform: rotate(-45deg);
+      }
+
+      &:before,
+      &:after {
+        background-color: $color-fill-green;
+        transition-delay: 0s, 0.3s;
+      }
+    }
+
+  }
+}

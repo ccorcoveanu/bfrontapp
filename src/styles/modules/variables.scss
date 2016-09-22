@@ -3,15 +3,29 @@
 
 // !Colors
 // ==|=========================================================================
-
+$color-default: #87888A;
+$color-link: #B6BD04;
+$color-selection: #CDD252;
+$color-background-default: #fff;
+$color-fill-green: #A8B30A;
 
 
 // !Typography
 // ==|=========================================================================
-$font_family-default: 'Penisi', cursive;
+$font_family-default: 'DinPro', open-sans;
 
 $font-size-base: 100%;
 $font-size-base-px: 16px;
+$normal: 400;
+$bold: 700;
+$bolder: 900;
+
+// !Layout dimensions
+$container-size: 1190px;
+
+
+// !Animation related stuff
+$visual-delay: 325ms;
 
 // ! Remify & Emify values
 // ==|=========================================================================

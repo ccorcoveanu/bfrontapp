@@ -1,3 +1,117 @@
+// Name: Layout
+// Author: Cristi Corcoveanu (cristi.corcoveanu@gmail.com)
+
+// !Layout
+// ==|=========================================================================
+// Globals and utils
+* {
+  box-sizing: border-box
+}
+
+::selection {
+  background: $color-selection; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $color-selection; /* Gecko Browsers */
+}
+
+// Layout styling
+html {
+  font-size: $font-size-base-px;
+
+  @include breakpoint(1250px) {
+    font-size: 15px;
+  }
+
+  @include breakpoint(1165px) {
+    font-size: 14px;
+  }
+
+  @include breakpoint(1100px) {
+    font-size: 13px;
+  }
+
+  @include breakpoint(1105px) {
+    font-size: 13px;
+  }
+
+  @include breakpoint(960px) {
+    font-size: 16px;
+  }
+}
+
 body {
+  background-color: $color-background-default;
+  color: $color-default;
   font-family: $font_family-default;
+  font-size: rem(16);
+  line-height: rem(18);
+  font-weight: $normal;
+  width: 100%;
+}
+
+header {
+  padding-top: rem(30);
+}
+
+a,
+a:active,
+a:hover,
+a:focus,
+a:visited {
+  display: inline-block;
+  outline: none;
+  text-decoration: none;
+  box-shadow: none;
+  border: none;
+  vertical-align: baseline;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $container-size;
+}
+
+.logo--link {
+
+}
+
+.hamburger--link {
+  width: rem(30);
+}
+
+.menu--container {
+  padding-top: rem(5);
+}
+
+.main-menu {
+  display: inline-block;
+  margin-left: rem(30);
+  padding-top: rem(5);
+  vertical-align: top;
+}
+
+.main-menu li {
+  display: inline-block;
+  font-weight: $bold;
+
+  &.top-item {
+    .-down-arrow {
+      margin-left: rem(5);
+      position: relative;
+      bottom: rem(3);
+    }
+  }
+
+  &:not(:last-of-type) {
+    margin-right: rem(30);
+  }
+
+  a,
+  a:active,
+  a:hover,
+  a:focus,
+  a:visited {
+    color: $color-default;
+  }
 }

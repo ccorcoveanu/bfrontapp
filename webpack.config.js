@@ -34,10 +34,11 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
-      hash: true
+      hash: true,
+      inject: 'head'
     }),
     new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'async',
+      defaultAttribute: 'sync',
     })
 
   ],

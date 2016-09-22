@@ -1,10 +1,28 @@
-@font-face {
-  font-family: 'Penisi';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Penisi'),
-  url('../fonts/DINPro-Bold.woff2') format('woff2'),
-  url('../fonts/DINPro-Bold.woff') format('woff'),
-  url('../fonts/DINPro-Bold.ttf') format('ttf'),
-  url('../fonts/DINPro-Bold.eot') format('eot');
+// Name: Fonts
+// Author: Cristi Corcoveanu (cristi.corcoveanu@gmail.com)
+
+@function font-url($file) {
+  @return '../fonts/' + $file;
 }
+@mixin font-family($family, $file, $weight:normal, $style: normal) {
+  @font-face {
+    font-family: $family;
+    font-style: $style;
+    font-weight: $weight;
+    src: local('☺'),
+    url(font-url($file) + '.woff2') format('woff2'),
+    url(font-url($file) + '.woff') format('woff'),
+    url(font-url($file) + '.ttf') format('ttf'),
+    url(font-url($file) + '.eot') format('eot');
+  }
+}
+
+/* !CSS Embedded Fonts */
+/* ==|========================================================================= */
+// DINPro
+// Boldest
+@include font-family('DINPro', 'DINPro-Black', 900, normal);
+// Bold
+@include font-family('DINPro', 'DINPro-Bold', 700, normal);
+// Regular
+@include font-family('DINPro', 'DINPro-Regular', 400, normal);
