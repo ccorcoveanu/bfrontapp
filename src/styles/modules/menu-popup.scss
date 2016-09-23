@@ -2,9 +2,10 @@
   @extend .clearfix;
   background-color: rgba(255, 255, 255, .95);
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+  color: $color-default-lite;
   display: none;
   left: rem(-40);
-  padding: rem(30) rem(40);
+  padding: rem(30);
   position: absolute;
   top: calc(100% + 20px);
   white-space: nowrap;
@@ -31,6 +32,7 @@
 
   > li {
     display: inline-block;
+    vertical-align: top;
     &:not(:last-of-type) {
       margin-right: rem(30);
     }
@@ -43,6 +45,7 @@
     font-size: rem(18);
     font-weight: $bolder;
     margin-bottom: rem(30);
+    padding-left: rem(20)
   }
 
   .-submenu {
@@ -54,6 +57,24 @@
       color: $color-default;
       font-size: rem(18);
       line-height: rem(30);
+    }
+
+    > li {
+      padding-left: rem(20);
+
+      a {
+        position: relative;
+
+        &:hover {
+          color: $color-link;
+        }
+
+        .icon {
+          position: absolute;
+          top: rem(1);
+          left: rem(-20);
+        }
+      }
     }
   }
 }
