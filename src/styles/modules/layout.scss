@@ -59,6 +59,7 @@ a:active,
 a:hover,
 a:focus,
 a:visited {
+  cursor: pointer;
   display: inline-block;
   outline: none;
   text-decoration: none;
@@ -81,7 +82,7 @@ a:visited {
 }
 
 .menu--container {
-  padding-top: rem(5);
+  padding-top: rem(8);
 }
 
 .main-menu {
@@ -114,4 +115,9 @@ a:visited {
   a:visited {
     color: $color-default;
   }
+}
+
+.hamburger--menu {
+  display: inline-block;
+  position: relative;
 }
