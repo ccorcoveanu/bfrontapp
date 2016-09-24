@@ -5,6 +5,7 @@
 // ==|=========================================================================
 $color-default: #87888A;
 $color-default-lite: #999A9C;
+$color-border: #ccc;
 $color-link: #B6BD04;
 $color-selection: #CDD252;
 $color-background-default: #fff;
@@ -27,12 +28,5 @@ $container-size: 1190px;
 
 // !Animation related stuff
 $visual-delay: 325ms;
-
-// ! Remify & Emify values
-// ==|=========================================================================
-@function rem($value) {
-  @return #{$value/16}rem;
-}
-@function em($value) {
-  @return #{$value/16}em;
-}
+$duration-simple: 200ms;
+$animation-ease-default: cubic-bezier(0.4, 0.0, 0.2, 1);

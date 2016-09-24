@@ -1,0 +1,20 @@
+form {
+  font-size: rem(16);
+}
+
+input[type="text"],
+input[type="password"]
+{
+  background: #FFF;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  color: $color-default;
+  font-size: rem(16);
+  line-height: rem(18);
+  padding: rem(56) rem(5) rem(5) rem(10);
+
+  &:focus {
+    border-color: $color-fill-green;
+    outline: none;
+  }
+}

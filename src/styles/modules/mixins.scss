@@ -1,0 +1,32 @@
+// Name: Mixins
+// Author: Cristi Corcoveanu (cristi.corcoveanu@gmail.com)
+
+// !Responsive
+// ==|=========================================================================
+
+@mixin below($width) {
+  @include breakpoint(max-width $width){
+    @content;
+  }
+}
+
+// ! Functions and utils
+// ! Remify & Emify values
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+// ==|=========================================================================
+@function rem($value) {
+  $stripped: strip-unit($value);
+  @return #{$stripped/16}rem;
+}
+@function em($value) {
+  @return #{$value/16}em;
+}

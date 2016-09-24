@@ -1,0 +1,14 @@
+// Name: Mobile devices Layout instructions
+// Author: Cristi Corcoveanu (cristi.corcoveanu@gmail.com)
+
+// !Remove outline and highlight for button-like interations
+svg,
+svg:focus,
+a,
+a:focus,
+i,
+i:focus {
+  // Should redefine this so the interactions would be obvious
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}

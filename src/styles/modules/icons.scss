@@ -1,5 +1,6 @@
 .icon {
   display: inline-block;
+  position: relative;
 
   &.-hamburger {
     // Default single line style
@@ -10,7 +11,7 @@
     margin-bottom: rem(10);
     position: relative;
     text-align: initial;
-    transition: all .2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all .2s $animation-ease-default;
     width: rem(30);
 
     // Copy hamburger line style to before and after
@@ -20,7 +21,7 @@
       background-color: $color-fill-green;
       height: rem(5);
       text-align: initial;
-      transition: all .2s cubic-bezier(0.4, 0.0, 0.2, 1);
+      transition: all .2s $animation-ease-default;
       width: rem(30);
       content: '';
       display: inline-block;
@@ -77,10 +78,34 @@
   svg {
     display: inline-block;
     fill: currentColor;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
     vertical-align: baseline;
+
+    path {
+      fill: currentCollor;
+    }
   }
 
+  &.-down-arrow,
+  &.-right-arrow {
+    height: 7px;
+    width: 10px;
+  }
   &.-right-arrow {
     transform: rotate(-90deg);
+  }
+
+  &.-bell {
+    height: 21px;
+    width: 16px;
+  }
+
+  &.-user {
+    height: 21px;
+    width: 15px;
   }
 }

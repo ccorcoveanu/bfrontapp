@@ -71,6 +71,10 @@ a:visited {
 .container {
   margin: 0 auto;
   max-width: $container-size;
+
+  @include below($container-size) {
+    padding: 0 rem(20);
+  }
 }
 
 .logo--link {
@@ -82,7 +86,7 @@ a:visited {
 }
 
 .menu--container {
-  padding-top: rem(8);
+  padding-top: rem(10);
 }
 
 .main-menu {
@@ -102,6 +106,13 @@ a:visited {
       position: relative;
       bottom: rem(3);
     }
+
+    .icon--link {
+      .-down-arrow,
+      .-right-arrow {
+        bottom: rem(5);
+      }
+    }
   }
 
   &:not(:last-of-type) {
@@ -120,4 +131,22 @@ a:visited {
 .hamburger--menu {
   display: inline-block;
   position: relative;
+}
+
+.search-and-options--container {
+  text-align: right;
+
+  .kiss--form {
+    display: inline-block;
+  }
+
+  .search--input {
+    padding: rem(12) rem(5) rem(10) rem(20);
+    max-width: rem(300);
+    width: rem(300);
+  }
+
+  .main-menu {
+    margin-top: rem(5);
+  }
 }
