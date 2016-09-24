@@ -108,4 +108,13 @@
     height: 21px;
     width: 15px;
   }
+
+  &.-search {
+    height: 21px;
+    width: 20px;
+
+    svg, path {
+      fill: $color-fill-green;
+    }
+  }
 }

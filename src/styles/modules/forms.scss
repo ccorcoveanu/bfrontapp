@@ -18,3 +18,15 @@ input[type="password"]
     outline: none;
   }
 }
+
+.kiss--form {
+  .search--input {
+    position: relative;
+  }
+
+  .-search {
+    position: absolute;
+    top: rem(10);
+    right: rem(20);
+  }
+}
