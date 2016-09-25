@@ -88,6 +88,10 @@
     path {
       fill: currentCollor;
     }
+
+    polygon {
+      fill: currentCollor;
+    }
   }
 
   &.-down-arrow,
@@ -116,5 +120,10 @@
     svg, path {
       fill: $color-fill-green;
     }
+  }
+
+  &.-notebook {
+    height: 21px;
+    width: 18px;
   }
 }

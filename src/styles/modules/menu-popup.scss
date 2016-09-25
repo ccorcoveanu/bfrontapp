@@ -4,8 +4,9 @@
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
   color: $color-default-lite;
   display: none;
-  left: rem(-40);
-  padding: rem(30);
+  // 75 means the 70px that we move the tick to the right and extra 5 meaning half of it's width
+  left: calc(50% - 75px);
+  padding: rem(30) rem(40);
   position: absolute;
   top: calc(100% + 20px);
   white-space: nowrap;
@@ -15,7 +16,7 @@
     content: '';
     position: absolute;
     top: -4px;
-    left: 2.8125rem;
+    left: rem(70);
     width: 10px;
     height: 10px;
     box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, .1);
@@ -34,7 +35,7 @@
     display: inline-block;
     vertical-align: top;
     &:not(:last-of-type) {
-      margin-right: rem(30);
+      margin-right: rem(50);
     }
   }
 
@@ -60,9 +61,8 @@
     }
 
     > li {
-      padding-left: rem(20);
-
       a {
+        padding-left: rem(20);
         position: relative;
 
         &:hover {
@@ -71,9 +71,44 @@
 
         .icon {
           position: absolute;
-          top: rem(1);
-          left: rem(-20);
+          top: rem(12);
+          left: 0;
         }
+      }
+    }
+  }
+
+  .main-menu .top-item & {
+    // 50% of the parent element, then move the element to the left
+    // so it would center. 70px - distance of the tick to the left
+    // and another 15px - the width and margin of the parent link
+    // arrow
+    left: calc(50% - 85px);
+  }
+}
+
+.popup--menu.navbar {
+  padding: rem(40) rem(80) rem(40) rem(60);
+  > li {
+    display: block;
+    font-size: rem(18);
+    line-height: rem(40);
+    font-weight: normal;
+    &:hover {
+      .popup--link {
+        color: $color-fill-green;
+      }
+    }
+
+    .popup--link {
+      position: relative;
+      padding-left: rem(40);
+      line-height: rem(21);
+
+      .icon {
+        position: absolute;
+        left: 0;
+        top: rem(3);
       }
     }
   }

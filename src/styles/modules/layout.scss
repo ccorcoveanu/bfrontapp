@@ -45,8 +45,9 @@ body {
   color: $color-default;
   font-family: $font_family-default;
   font-size: rem(16);
-  line-height: rem(18);
   font-weight: $normal;
+  line-height: rem(18);
+  overflow: hidden;
   width: 100%;
 }
 
@@ -100,11 +101,12 @@ a:visited {
   }
 }
 
-.main-menu li {
+.main-menu > li {
   display: inline-block;
   font-weight: $bold;
 
   &.top-item {
+    position: relative;
     .-down-arrow {
       margin-left: rem(5);
       position: relative;

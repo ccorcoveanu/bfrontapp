@@ -47,5 +47,8 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.16.1"
+  },
+  "dependencies": {
+    "hammerjs": "^2.0.8"
   }
 }
