@@ -89,7 +89,13 @@ a:visited {
   max-width: $container-size;
 
   @include below($container-size) {
-    padding: 0 rem(20);
+    padding: 0 rem(60);
+  }
+}
+
+.logo--container {
+  @include below($big-tablet) {
+    margin-right: rem(20);
   }
 }
 
