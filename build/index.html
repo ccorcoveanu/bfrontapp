@@ -5,11 +5,12 @@
     <meta name="author" content="Cristi Corcoveanu (cristi.corcoveanu@gmail.com)">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no" /> <!-- Remove tap highlight for windows devices -->
     <title>Kiss App</title>
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
-<link href="css/style.css?d1688d3eab184c7a1767" rel="stylesheet"></head>
+    <script src="http://hammerjs.github.io/dist/hammer-time.min.js" type="text/javascript" async></script>
+<link href="css/style.css?8b397a89af9fc607a269" rel="stylesheet"></head>
 <body class="home">
 
     <header>
@@ -26,7 +27,7 @@
             </div>
             <div class="menu--container col-7-20">
                 <div class="hamburger--menu">
-                    <a id="hamburger--link" class="hamburger--link">
+                    <a id="hamburger--link" class="hamburger--link" style="touch-action: none;">
                         <i class="icon -hamburger"></i>
                     </a>
                     <ul class="popup--menu">
@@ -267,8 +268,70 @@
             </div>
         </div>
     </header>
-    <main class="main container">
-        
+    <main class="main">
+        <section class="site--content container">
+            <h1>This is where the content goes</h1>
+        </section>
+
+        <section class="sidebar--container" id="sidebar--container--element">
+            <h2 class="sidebar--title">Sozial Arbeiter, Name</h2>
+
+            <ul class="sidebar--nav">
+                <li class="">
+                    <a class="icon--link" href="javascript:;">
+                        <i class="icon -network">
+                            <svg>
+                                <use xlink:href="images/common.svg#network"></use>
+                            </svg>
+                        </i>Beteiligte
+                    </a>
+                </li>
+                <li class="">
+                    <a class="icon--link" href="javascript:;">
+                        <i class="icon -eye">
+                            <svg>
+                                <use xlink:href="images/common.svg#eye"></use>
+                            </svg>
+                        </i>Fallführung
+                    </a>
+                </li>
+                <li class="">
+                    <a class="icon--link" href="javascript:;">
+                        <i class="icon -text">DOK</i>Cristian Simina
+                    </a>
+                </li>
+                <li class="">
+                    <a class="icon--link" href="javascript:;">
+                        <i class="icon -text">SB</i>Cristian Simina
+                    </a>
+                </li>
+                <li class="">
+                    <a class="icon--link" href="javascript:;">
+                        <i class="icon -text">CM</i>Cristian Simina
+                    </a>
+                </li>
+                <li class="">
+                    <a class="icon--link" href="javascript:;">
+                        <i class="icon -text">BW</i>Cristian Simina
+                    </a>
+                </li>
+                <li class="">
+                    <a class="icon--link" href="javascript:;">
+                        <i class="icon -text">ED</i>Cristian Simina
+                    </a>
+                </li>
+            </ul>
+            <div class="resize--controller"><!-- This will span on a wider distance on tablet so it would be easier to pan -->
+                <span class="resizer-desktop">
+                    <i class="icon -resizer">
+                        <svg>
+                            <use xlink:href="images/common.svg#resizer"></use>
+                        </svg>
+                    </i>
+                </span>
+            </div>
+        </section>
     </main>
-<script src="js/bundle.js?d1688d3eab184c7a1767" type="text/javascript" async></script></body>
+
+<script src="js/bundle.js?8b397a89af9fc607a269" type="text/javascript" async></script></body>
 </html>

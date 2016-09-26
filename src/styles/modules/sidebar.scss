@@ -1,0 +1,73 @@
+.sidebar--container {
+  background: rgba(255, 255, 255, .9);
+  border-radius: 0 6px 6px 0;
+  box-shadow: $shadow-default;
+  left: 0;
+  overflow: hidden;
+  padding: rem(40);
+  position: absolute;
+  top: 0;
+
+  .sidebar--title {
+    font-size: rem(14);
+    font-weight: $bold;
+    line-height: rem(14);
+    margin-bottom: rem(5);
+  }
+
+  .sidebar--nav {
+    font-size: rem(14);
+    line-height: rem(40);
+    margin-top: rem(25);
+  }
+
+  .icon--link {
+    border-bottom: 2px solid transparent;
+    color: $color-default;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-left: rem(30);
+    padding-right: rem(80);
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover {
+      border-bottom: 2px solid $color-link;
+      color: $color-link;
+    }
+
+    .icon {
+      position: absolute;
+      top: rem(14);
+      left: 0;
+    }
+  }
+
+  .resize--controller {
+    cursor: col-resize;
+    position: absolute;
+    width: 20px;
+    right: 0;
+    top: 0;
+    height: 100%;
+
+    &:hover {
+      color: $color-link;
+    }
+
+    .resizer-desktop {
+      display: inline-block;
+      width: 10px;
+      height: 100%;
+      position: relative;
+
+      .icon.-resizer {
+        position: absolute;
+        top: 50%;
+        left: 2px;
+      }
+    }
+  }
+}

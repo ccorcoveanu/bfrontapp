@@ -47,12 +47,18 @@ body {
   font-size: rem(16);
   font-weight: $normal;
   line-height: rem(18);
+  position: relative;
   overflow: hidden;
   width: 100%;
 }
 
 header {
   padding-top: rem(30);
+}
+
+main {
+  margin-top: rem(40);
+  position: relative;
 }
 
 a,
@@ -67,6 +73,15 @@ a:visited {
   box-shadow: none;
   border: none;
   vertical-align: baseline;
+}
+
+.js-selection-disabled {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .container {

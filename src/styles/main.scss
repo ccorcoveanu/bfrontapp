@@ -12,6 +12,7 @@
 
 // Block speciffic. Could overwrite layout
 @import './modules/menu-popup';
+@import './modules/sidebar';
 
 // Mobile devices interactions - last, more important
 @import './modules/mbdevices/layout';

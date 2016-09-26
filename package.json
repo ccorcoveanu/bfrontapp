@@ -49,6 +49,7 @@
     "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
+    "hammer-time": "^2.0.0",
     "hammerjs": "^2.0.8"
   }
 }
