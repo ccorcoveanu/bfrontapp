@@ -22,7 +22,15 @@ window.onload = function() {
 
   hammerjs.get('pan').set({threshold: 1})
 
+  let swipe = false
   hammerjs.on('panstart', function(ev) {
+
+    // Let the user know that he can do something
+    if ( 'vibrate' in navigator ) {
+      navigator.vibrate(200)
+    }
+
+    swipe = false
     menu_width = menu.offsetWidth
     menu.classList.remove('-animate')
     menu.classList.remove('-closed')
@@ -31,6 +39,8 @@ window.onload = function() {
     document.getElementsByTagName('body')[0].classList.add('js-selection-disabled')
   })
   hammerjs.on('panend', function(ev) {
+    if ( swipe ) return false
+    console.log('swiping')
     document.getElementsByTagName('body')[0].classList.remove('js-selection-disabled')
     menu.classList.add('-animate')
     menu.classList.remove('-resizing')
@@ -45,15 +55,31 @@ window.onload = function() {
 
       menu.style.width = '';
     }
+    console.log('panend')
   })
 
+  hammerjs.on('swipeleft', function(ev) {
+    swipe = true
+    menu.classList.add('-animate')
+    menu.classList.remove('-resizing')
+    menu.style.width = '';
+    menu.classList.add('-closed')
+  })
+
+  /*hammerjs.on('swiperight', function(ev) {
+    swipe = true
+    menu.classList.add('-animate')
+    menu.classList.remove('-resizing')
+    menu.style.width = '';
+    menu.classList.add('-open')
+  })*/
+
+  hammerjs.get('swipe').recognizeWith('pan')
+
   hammerjs.on('pan', function(ev) {
+    if ( swipe ) return false
     let width = menu_width + ev.deltaX
     menu.style.width = width + 'px'
-
-    let x =  opacity(document.querySelector('.sidebar--nav .icon--link').clientWidth - 105)
-
-    //menu.style.opacity = x;
   })
 
   function opacity(x) {
