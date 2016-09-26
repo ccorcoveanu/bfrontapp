@@ -4,21 +4,35 @@
   box-shadow: $shadow-default;
   left: 0;
   overflow: hidden;
-  padding: rem(40);
   position: absolute;
   top: 0;
+  //transition: all .2s $animation-ease-default;
+  z-index: 200;
 
   .sidebar--title {
     font-size: rem(14);
     font-weight: $bold;
     line-height: rem(14);
     margin-bottom: rem(5);
+    margin-top: rem(40);
+    padding-left: rem(40);
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .sidebar--nav {
     font-size: rem(14);
     line-height: rem(40);
     margin-top: rem(25);
+    padding-left: rem(40);
+    padding-right: rem(25);
+    overflow: hidden;
+
+    li {
+      padding-right: rem(40);
+    }
   }
 
   .icon--link {
@@ -46,12 +60,14 @@
   }
 
   .resize--controller {
+    background-color: rgba(255, 255, 255, .9);
     cursor: col-resize;
     position: absolute;
     width: 20px;
     right: 0;
     top: 0;
     height: 100%;
+    padding-left: rem(5);
 
     &:hover {
       color: $color-link;
@@ -62,12 +78,43 @@
       width: 10px;
       height: 100%;
       position: relative;
+      z-index: 210;
 
       .icon.-resizer {
         position: absolute;
         top: 50%;
         left: 2px;
       }
+    }
+  }
+
+  &.-closed {
+    width: 20px;
+    .sidebar--title,
+    .sidebar--nav {
+      opacity: 0;
+    }
+  }
+
+  &.-open {
+    width: auto;
+
+    .sidebar--title,
+    .sidebar--nav {
+      opacity: 1;
+    }
+  }
+
+  &.-animate {
+    transition: all .2s $animation-ease-default;
+  }
+
+  @include below($container-size) {
+    padding: rem(10);
+    width: 20px;
+    .sidebar--title,
+    .sidebar--nav {
+      opacity: 0;
     }
   }
 }
