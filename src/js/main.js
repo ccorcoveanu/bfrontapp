@@ -25,11 +25,6 @@ window.onload = function() {
   let swipe = false
   hammerjs.on('panstart', function(ev) {
 
-    // Let the user know that he can do something
-    if ( 'vibrate' in navigator ) {
-      navigator.vibrate(200)
-    }
-
     swipe = false
     menu_width = menu.offsetWidth
     menu.classList.remove('-animate')
@@ -40,7 +35,7 @@ window.onload = function() {
   })
   hammerjs.on('panend', function(ev) {
     if ( swipe ) return false
-    console.log('swiping')
+
     document.getElementsByTagName('body')[0].classList.remove('js-selection-disabled')
     menu.classList.add('-animate')
     menu.classList.remove('-resizing')
@@ -67,6 +62,7 @@ window.onload = function() {
   })
 
   /*hammerjs.on('swiperight', function(ev) {
+
     swipe = true
     menu.classList.add('-animate')
     menu.classList.remove('-resizing')
@@ -80,6 +76,13 @@ window.onload = function() {
     if ( swipe ) return false
     let width = menu_width + ev.deltaX
     menu.style.width = width + 'px'
+  })
+
+  menu.addEventListener('touchstart', function(ev) {
+    // Let the user know that he can do something
+    if ( 'vibrate' in navigator ) {
+      navigator.vibrate(20)
+    }
   })
 
   function opacity(x) {
