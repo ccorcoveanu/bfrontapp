@@ -27,14 +27,16 @@ window.onload = function() {
     menu.classList.remove('-animate')
     menu.classList.remove('-closed')
     menu.classList.remove('-open')
+    menu.classList.add('-resizing')
     document.getElementsByTagName('body')[0].classList.add('js-selection-disabled')
   })
   hammerjs.on('panend', function(ev) {
     document.getElementsByTagName('body')[0].classList.remove('js-selection-disabled')
     menu.classList.add('-animate')
+    menu.classList.remove('-resizing')
     menu_width = menu.offsetWidth
 
-    if ( menu_width > 100 ) {
+    if ( menu_width > 130 ) {
       menu.classList.add('-open')
 
       //menu.style.width = ''
