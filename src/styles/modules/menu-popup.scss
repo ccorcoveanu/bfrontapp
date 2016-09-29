@@ -11,6 +11,17 @@
   top: calc(100% + 20px);
   white-space: nowrap;
   z-index: 100;
+
+  @include below($big-tablet) {
+    .hamburger--menu & {
+      left: 10px;
+      width: 100%;
+      max-width: calc(100% - 20px);
+      z-index: 300;
+      top: rem(60);
+    }
+  }
+
   &:before {
     background-color: #fff;
     content: '';
@@ -22,6 +33,12 @@
     box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, .1);
     transform: rotate(45deg);
     z-index: 110;
+
+    @include below($big-tablet) {
+      .hamburger--menu & {
+        left: rem(200)
+      }
+    }
   }
 
   &:after {

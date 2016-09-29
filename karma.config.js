@@ -48,12 +48,18 @@ module.exports = function(config) {
           {
             test: /\.js$/,
             include: path.resolve(__dirname, '../src'),
-            exclude: /(bower_components|node_modules|tests)/,
+            exclude: /(bower_components|node_modules|tests|styles)/,
             loader: 'babel',
             query: {
               cacheDirectory: true,
             },
+
           },
+          {
+            test: /\.scss$/,
+            loaders: [ 'style', 'css?sourceMap', 'sass?sourceMap' ]
+          },
+          { test: /\.(png|woff|woff2|eot|ttf)$/, loader: 'url-loader?limit=100000'}
         ],
       },
     },

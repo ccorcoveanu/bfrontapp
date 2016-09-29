@@ -149,4 +149,13 @@
     width: 5px;
     height: 22px;
   }
+
+  &.-back {
+    width: 22px;
+    height: 22px;
+
+    svg, path {
+      fill: $color-fill-green;
+    }
+  }
 }

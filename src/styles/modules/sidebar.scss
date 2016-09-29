@@ -3,6 +3,7 @@
   border-radius: 0 6px 6px 0;
   box-shadow: $shadow-default;
   left: 0;
+  max-width: 99%;
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -132,6 +133,18 @@
     }
   }
 
+  &.-bounce {
+    animation-name: bounce;
+    animation-duration: .3s;
+    animation-iteration-count: 1;
+    width: rem(320);
+
+    .sidebar--title,
+    .sidebar--nav {
+      opacity: 1;
+    }
+  }
+
   @include below($container-size) {
     padding: rem(10);
     width: 40px;
@@ -139,5 +152,36 @@
     .sidebar--nav {
       opacity: 0;
     }
+  }
+}
+
+// !Animations
+
+// Bounce effect for drawer menu
+@-webkit-keyframes bounce {
+  50% {
+    width: rem(325);
+  }
+
+  80% {
+    width: rem(317);
+  }
+
+  100% {
+    width: rem(320);
+  }
+}
+
+@keyframes bounce {
+  50% {
+    width: rem(325);
+  }
+
+  80% {
+    width: rem(317);
+  }
+
+  100% {
+    width: rem(320);
   }
 }

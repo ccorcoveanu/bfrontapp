@@ -29,4 +29,11 @@ input[type="password"]
     top: rem(10);
     right: rem(20);
   }
+
+  .-back {
+    display: none;
+    position: absolute;
+    left: rem(10);
+    top: rem(10);
+  }
 }

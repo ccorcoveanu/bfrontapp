@@ -28,7 +28,7 @@ module.exports = {
           'css?sourceMap!sass?sourceMap'
         )
       },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
+      { test: /\.(woff|woff2|eot|ttf)$/, loader: 'file?name=fonts/[name].[ext]'}
     ]
   },
   plugins: [
@@ -44,7 +44,7 @@ module.exports = {
         warnings: false
       }
     }),
-    new ExtractTextPlugin('css/style.css'),
+    new ExtractTextPlugin('style.css'),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src/', 'index.html'),
       hash: true,
