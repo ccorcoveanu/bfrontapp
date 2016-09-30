@@ -1,0 +1,76 @@
+.box--item {
+  @extend .clearfix;
+  border-radius: 6px;
+  box-shadow: $shadow-default;
+  overflow: hidden;
+
+  .-header {
+    background-color: $color-default;
+    color: #fff;
+    padding: rem(15) rem(20);
+
+    .icon {
+      cursor: pointer;
+      opacity: .4;
+
+      &:not(:last-of-type) {
+        margin-right: rem(10);
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .counter {
+      font-size: rem(40);
+      line-height: rem(40);
+      font-weight: $bolder;
+    }
+
+    .-title {
+      display: inline-block;
+      font-weight: $bold;
+    }
+
+    .-controls {
+      float: right;
+    }
+  }
+
+  &.-active {
+    .-header {
+      background-color: $color-link;
+    }
+  }
+
+  .-content {
+    padding: rem(5) rem(10);
+  }
+
+  .-thead {
+    font-weight: $bold;
+    font-size: rem(12);
+    color: $color-box-lite;
+    line-height: rem(14);
+    padding-left: rem(10);
+  }
+
+  .-tcontent {
+    color: #000;
+    font-size: rem(14);
+    line-height: rem(24);
+    font-weight: normal;
+    margin-top: rem(10);
+    max-height: rem(430);
+    overflow-x: hidden;
+
+    .row {
+      cursor: pointer;
+      padding-left: rem(10);
+      &:hover {
+        background-color: $color-box-fill;
+      }
+    }
+  }
+}

@@ -158,4 +158,26 @@
       fill: $color-fill-green;
     }
   }
+
+  &.-pencil {
+    width: 21px;
+    height: 20px;
+  }
+
+  &.-minus {
+    width: 20px;
+    height: 6px;
+    bottom: 6px;
+  }
+
+  &.-plus {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.-close {
+    width: 30px;
+    height: 29px;
+    top: 4px;
+  }
 }
