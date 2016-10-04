@@ -7,6 +7,7 @@
   .-header {
     background-color: $color-default;
     color: #fff;
+    cursor: pointer;
     padding: rem(15) rem(20);
 
     .icon {
@@ -23,17 +24,20 @@
     }
 
     .counter {
+      cursor: text;
       font-size: rem(40);
       line-height: rem(40);
       font-weight: $bolder;
     }
 
     .-title {
+      cursor: text;
       display: inline-block;
       font-weight: $bold;
     }
 
     .-controls {
+      cursor: auto;
       float: right;
     }
   }
@@ -63,7 +67,9 @@
     font-weight: normal;
     margin-top: rem(10);
     max-height: rem(430);
+    position: relative;
     overflow-x: hidden;
+    z-index: 9;
 
     .row {
       cursor: pointer;
@@ -73,4 +79,67 @@
       }
     }
   }
+}
+
+// A little inline grid for our boxes
+
+[class*='bgrid-'] {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: rem($pad);
+  white-space: nowrap;
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  [class*='col-'] {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.bgrid-3-20 {
+  width: (100%/20)*3;
+}
+
+.bgrid-4-20 {
+  width: (100%/20)*4;
+}
+
+.bgrid-6-20 {
+  width: (100%/20)*6;
+}
+
+.bgrid-7-20 {
+  width: (100%/20)*7;
+
+  @include below($small-desktop) {
+    width: auto;
+    display: block;
+    margin: 0 rem(10) rem(40) 0;
+    padding-right: 0;
+  }
+}
+.bgrid-10-20 {
+  width: (100%/20)*10;
+
+  @include below($small-desktop) {
+    width: auto;
+    display: block;
+    margin: 0 rem(10) rem(40) 0;
+    padding-right: 0;
+  }
+}
+
+.dnd-grid__dropzone {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(1, 1, 1, .3);
+  will-change: transform, opacity;
+  pointer-events: none;
+  border-radius: 6px;
 }

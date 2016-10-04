@@ -4,10 +4,14 @@ require('hammerjs')
 import ClickSpeed from './modules/clickspeed'
 import Hamburger from './modules/hamburger'
 import SidebarEvents from './modules/sidebar/events'
+import Interchange from './modules/boxes/interchange'
 
 window.onload = function() {
   // Optimizations
   //ClickSpeed();
+  let interchange = new Interchange(
+    'box--item'
+  )
   document.addEventListener('touchstart', function(ev){return;}, {})
 
   // End optimizations

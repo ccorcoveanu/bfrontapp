@@ -8,6 +8,7 @@
   position: absolute;
   top: 0;
   width: rem(320);
+  will-change: width;
   //transition: all .2s $animation-ease-default;
   z-index: 200;
 
