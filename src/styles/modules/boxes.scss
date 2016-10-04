@@ -3,6 +3,8 @@
   border-radius: 6px;
   box-shadow: $shadow-default;
   overflow: hidden;
+  position: relative;
+  z-index: $box-index;
 
   .-header {
     background-color: $color-default;
@@ -49,6 +51,7 @@
   }
 
   .-content {
+    background-color: #fff;
     padding: rem(5) rem(10);
   }
 
@@ -133,13 +136,12 @@
 
 .dnd-grid__dropzone {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  top: 0;
-  left: 0;
+  display: inline-block;
   opacity: 0;
   background-color: rgba(1, 1, 1, .3);
-  will-change: transform, opacity;
+  will-change: width, height, opacity, transform;
   pointer-events: none;
   border-radius: 6px;
+  z-index: $dropzone-index;
+  margin-right: rem($pad);
 }
