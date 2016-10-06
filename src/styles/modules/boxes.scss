@@ -1,16 +1,28 @@
 .box--item {
   @extend .clearfix;
+
   border-radius: 6px;
   box-shadow: $shadow-default;
   overflow: hidden;
   position: relative;
   z-index: $box-index;
 
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
+
   .-header {
     background-color: $color-default;
     color: #fff;
     cursor: pointer;
-    padding: rem(15) rem(20);
+    padding: rem(15) rem(5) rem(15) rem(20);
 
     .icon {
       cursor: pointer;
@@ -18,6 +30,10 @@
 
       &:not(:last-of-type) {
         margin-right: rem(10);
+      }
+
+      &.-plus {
+        margin-right: 0;
       }
 
       &:hover {
@@ -82,6 +98,28 @@
       }
     }
   }
+
+  &.bgrid-4-20 {
+    .-header {
+      @extend .clearfix;
+      .counter {
+        font-size: rem(16);
+        line-height: rem(18);
+        float: left;
+        margin-right: rem(5);
+      }
+
+      .-title {
+        display: block;
+      }
+
+      .-controls {
+        position: absolute;
+        top: rem(15);
+        right: rem(5);
+      }
+    }
+  }
 }
 
 // A little inline grid for our boxes
@@ -91,7 +129,8 @@
   vertical-align: top;
   margin-right: rem($pad);
   white-space: nowrap;
-  &:last-of-type {
+  &:last-of-type,
+  &.-last {
     margin-right: 0;
   }
 
@@ -102,19 +141,19 @@
 }
 
 .bgrid-3-20 {
-  width: (100%/20)*3;
+  width: (100%/20)*3 - 1;
 }
 
 .bgrid-4-20 {
-  width: (100%/20)*4;
+  width: (100%/20)*4 - 1;
 }
 
 .bgrid-6-20 {
-  width: (100%/20)*6;
+  width: (100%/20)*6 - 1;
 }
 
 .bgrid-7-20 {
-  width: (100%/20)*7;
+  width: (100%/20)*7 - 1;
 
   @include below($small-desktop) {
     width: auto;
@@ -124,7 +163,7 @@
   }
 }
 .bgrid-10-20 {
-  width: (100%/20)*10;
+  width: (100%/20)*10 - 1;
 
   @include below($small-desktop) {
     width: auto;
