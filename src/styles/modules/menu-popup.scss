@@ -10,7 +10,7 @@
   position: absolute;
   top: calc(100% + 20px);
   white-space: nowrap;
-  z-index: 100;
+  z-index: $popup-index;
 
   @include below($big-tablet) {
     .hamburger--menu & {

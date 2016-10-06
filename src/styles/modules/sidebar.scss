@@ -10,7 +10,7 @@
   width: rem(320);
   will-change: width;
   //transition: all .2s $animation-ease-default;
-  z-index: 200;
+  z-index: $popup-index;
 
   .sidebar--title {
     font-size: rem(14);
@@ -78,7 +78,6 @@
   }
 
   .resize--controller {
-    background-color: rgba(255, 255, 255, 1);
     cursor: col-resize;
     position: absolute;
     width: rem(40);
