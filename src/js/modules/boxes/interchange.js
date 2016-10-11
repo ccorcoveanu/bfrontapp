@@ -59,6 +59,8 @@ class Interchange {
     this.targetBCR                = this.target.getBoundingClientRect()
     this.startX                   = evt.pageX || evt.touches[0].pageX
     this.startY                   = evt.pageY || evt.touches[0].pageY
+    this.offsetX                  = 0
+    this.offsetY                  = 0
     this.currentX                 = this.startX
     this.currentY                 = this.startY
     this.draggingCard             = true
@@ -81,9 +83,29 @@ class Interchange {
     this.hoverBox = this.getHoverBox()
 
     if ( this.hoverBox !== false && this.hoverBox !== parseInt(this.target.dataset.item) ) {
-      this.overlay.parentNode.insertBefore(this.overlay, this.boxes[this.hoverBox+1])
-      this.boxes[this.hoverBox].parentNode.insertBefore(this.boxes[this.hoverBox-1], this.boxes[this.hoverBox+1])
+
+      let targetIndex = parseInt(this.target.dataset.item)
+
+
+      if ( this.hoverBox > targetIndex ) {
+
+        this.offsetX = -this.boxesBounds[this.hoverBox].width
+
+        this.overlay.parentNode.insertBefore(this.overlay, this.boxes[this.hoverBox+1])
+        this.boxes[this.hoverBox].parentNode.insertBefore(this.boxes[this.hoverBox-1], this.boxes[this.hoverBox+1])
+
+        this.boxes[this.hoverBox].dataset.item = targetIndex
+        this.target.dataset.item = this.hoverBox
+
+        this.boxes = document.querySelectorAll('.box--item')
+        this.boxesBounds = this.getBoxesBoundRects()
+
+        this.hoverBox = false
+      }
     }
+
+    this.currentX += this.offsetX
+    this.currentY += this.offsetY
   }
 
   getHoverBox() {
@@ -104,6 +126,8 @@ class Interchange {
 
     this.targetX = 0
     this.targetY = 0
+    this.offsetX = 0
+    this.offsetY = 0
     this.draggingCard = false
   }
 
@@ -164,10 +188,10 @@ class Interchange {
     let bounds = []
 
     for ( let i = 0; i < elements.length; i++ ) {
-      bounds.push(elements[i].getBoundingClientRect())
+      let info = elements[i].getBoundingClientRect()
+      info.index = i
+      bounds.push(info)
     }
-
-    console.log(bounds)
 
     return bounds;
   }
