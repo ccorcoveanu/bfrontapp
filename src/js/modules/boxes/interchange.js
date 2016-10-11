@@ -1,6 +1,9 @@
 'use strict'
 
+import debounce from '../helpers/debounce'
+
 class Interchange {
+
   constructor () {
 
     this.overlayClassName = 'dnd-grid__dropzone'
@@ -22,7 +25,12 @@ class Interchange {
     this.screenY = 0
     this.targetX = 0
     this.targetY = 0
+    this.targetIndex = false;
     this.draggingCard = false
+    this.hoverBox = false // When dragging and cursor is hover the card, change
+
+    this.boxesBounds = this.getBoxesBoundRects()
+    this.boxes = document.querySelectorAll('.box--item')
 
     this.addEventListeners()
     requestAnimationFrame(this.update)
@@ -69,6 +77,25 @@ class Interchange {
       return
     this.currentX = evt.pageX || evt.touches[0].pageX
     this.currentY = evt.pageY || evt.touches[0].pageY
+
+    this.hoverBox = this.getHoverBox()
+
+    if ( this.hoverBox !== false && this.hoverBox !== parseInt(this.target.dataset.item) ) {
+      this.overlay.parentNode.insertBefore(this.overlay, this.boxes[this.hoverBox+1])
+      this.boxes[this.hoverBox].parentNode.insertBefore(this.boxes[this.hoverBox-1], this.boxes[this.hoverBox+1])
+    }
+  }
+
+  getHoverBox() {
+    for ( let i = 0; i < this.boxesBounds.length; i++ ) {
+      // Assume user ussualy drags on the horizontal, so the Y check is likely to fail first
+      if ( (this.currentY > this.boxesBounds[i].top && this.currentY < this.boxesBounds[i].bottom)
+          && (this.currentX > this.boxesBounds[i].left && this.currentX < this.boxesBounds[i].right) ) {
+
+        return i // Return index
+      }
+    }
+    return false // Careful with use
   }
 
   onEnd (evt) {
@@ -130,6 +157,19 @@ class Interchange {
     this.target.style.zIndex = 250
     this.target.style.position = 'relative'
     this.target = null
+  }
+
+  getBoxesBoundRects() {
+    let elements = document.querySelectorAll('.box--item')
+    let bounds = []
+
+    for ( let i = 0; i < elements.length; i++ ) {
+      bounds.push(elements[i].getBoundingClientRect())
+    }
+
+    console.log(bounds)
+
+    return bounds;
   }
 }
 
