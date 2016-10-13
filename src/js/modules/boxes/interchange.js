@@ -32,6 +32,8 @@ class Interchange {
     this.boxesBounds = this.getBoxesBoundRects()
     this.boxes = document.querySelectorAll('.box--item')
 
+    console.log(this.boxesBounds)
+
     this.addEventListeners()
     requestAnimationFrame(this.update)
   }
@@ -80,9 +82,11 @@ class Interchange {
     this.currentX = evt.pageX || evt.touches[0].pageX
     this.currentY = evt.pageY || evt.touches[0].pageY
 
-    this.hoverBox = this.getHoverBox()
+    if ( this.draggingCard ) {
+      this.hoverBox = this.getHoverBox()
+    }
 
-    if ( this.hoverBox !== false && this.hoverBox !== parseInt(this.target.dataset.item) ) {
+    if ( this.draggingCard && (this.hoverBox !== false && this.hoverBox !== parseInt(this.target.dataset.item)) ) {
 
       let targetIndex = parseInt(this.target.dataset.item)
 
@@ -91,6 +95,10 @@ class Interchange {
 
         this.offsetX = -this.boxesBounds[this.hoverBox].width
 
+        if ( this.boxes[this.hoverBox].classList.contains('-last') ) {
+          this.boxes[this.hoverBox].classList.remove('-last')
+          this.boxes[targetIndex].classList.add('-last')
+        }
         this.overlay.parentNode.insertBefore(this.overlay, this.boxes[this.hoverBox+1])
         this.boxes[this.hoverBox].parentNode.insertBefore(this.boxes[this.hoverBox-1], this.boxes[this.hoverBox+1])
 
@@ -153,6 +161,7 @@ class Interchange {
     if ( isNearlyAtStart ) {
       this.resetTarget()
       this.destroyDropzone()
+      this.boxesBounds = this.getBoxesBoundRects()
     }
   }
 
