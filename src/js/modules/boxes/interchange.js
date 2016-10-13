@@ -79,8 +79,15 @@ class Interchange {
   onMove (evt) {
     if (!this.target)
       return
+
+    let dirX = this.currentX;
+
     this.currentX = evt.pageX || evt.touches[0].pageX
     this.currentY = evt.pageY || evt.touches[0].pageY
+
+    dirX = this.currentX - dirX; // Positive or negative transition
+
+    //console.log(dirX)
 
     if ( this.draggingCard ) {
       this.hoverBox = this.getHoverBox()
@@ -89,7 +96,6 @@ class Interchange {
     if ( this.draggingCard && (this.hoverBox !== false && this.hoverBox !== parseInt(this.target.dataset.item)) ) {
 
       let targetIndex = parseInt(this.target.dataset.item)
-
 
       if ( this.hoverBox > targetIndex ) {
 
@@ -100,7 +106,7 @@ class Interchange {
           this.boxes[targetIndex].classList.add('-last')
         }
         this.overlay.parentNode.insertBefore(this.overlay, this.boxes[this.hoverBox+1])
-        this.boxes[this.hoverBox].parentNode.insertBefore(this.boxes[this.hoverBox-1], this.boxes[this.hoverBox+1])
+        this.boxes[this.hoverBox].parentNode.insertBefore(this.boxes[targetIndex], this.boxes[this.hoverBox+1])
 
         this.boxes[this.hoverBox].dataset.item = targetIndex
         this.target.dataset.item = this.hoverBox
@@ -109,6 +115,26 @@ class Interchange {
         this.boxesBounds = this.getBoxesBoundRects()
 
         this.hoverBox = false
+
+      } else if (this.hoverBox < targetIndex && dirX < 0) {
+
+        /*this.offsetX = this.boxesBounds[this.hoverBox].width
+
+        if ( this.boxes[targetIndex].classList.contains('-last') ) {
+          this.boxes[targetIndex].classList.remove('-last')
+          this.boxes[this.hoverBox].classList.add('-last')
+        }
+
+        this.overlay.parentNode.insertBefore(this.overlay, this.boxes[this.hoverBox])
+        this.boxes[this.hoverBox].parentNode.insertBefore(this.boxes[targetIndex], this.boxes[this.hoverBox])
+
+        this.boxes[this.hoverBox].dataset.item = targetIndex
+        this.target.dataset.item = this.hoverBox
+
+        this.boxes = document.querySelectorAll('.box--item')
+        this.boxesBounds = this.getBoxesBoundRects()
+
+        this.hoverBox = false*/
       }
     }
 
