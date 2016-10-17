@@ -1,7 +1,5 @@
 'use strict'
 
-import debounce from '../helpers/debounce'
-
 class Interchange {
 
   constructor () {
@@ -93,6 +91,8 @@ class Interchange {
     }
 
     if ( this.draggingCard && (this.hoverBox !== false && this.hoverBox !== parseInt(this.target.dataset.item)) ) {
+
+      console.log(this.hoverBox)
 
       let targetIndex = parseInt(this.target.dataset.item)
 

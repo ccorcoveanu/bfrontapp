@@ -5,6 +5,7 @@ import ClickSpeed from './modules/clickspeed'
 import Hamburger from './modules/hamburger'
 import SidebarEvents from './modules/sidebar/events'
 import Interchange from './modules/boxes/interchange'
+import BoxOptions from './modules/boxes/box-options'
 
 window.onload = function() {
   // Optimizations
@@ -12,6 +13,7 @@ window.onload = function() {
   let interchange = new Interchange(
     'box--item'
   )
+  let boxOptions = new BoxOptions()
   document.addEventListener('touchstart', function(ev){return;}, {})
 
   // End optimizations

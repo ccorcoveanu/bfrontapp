@@ -70,6 +70,10 @@
   .-content {
     background-color: #fff;
     padding: rem(5) rem(10);
+
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   }
 
   .-thead {
@@ -173,6 +177,14 @@
     .-controls {
       position: relative;
       bottom: rem(10)
+    }
+  }
+
+  &.-minimized {
+    .-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
     }
   }
 }
