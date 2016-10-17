@@ -23,6 +23,7 @@ class Interchange {
     this.currentY = 0
     this.screenX = 0
     this.screenY = 0
+    this.directionX = 0
     this.targetX = 0
     this.targetY = 0
     this.targetIndex = false;
@@ -31,8 +32,6 @@ class Interchange {
 
     this.boxesBounds = this.getBoxesBoundRects()
     this.boxes = document.querySelectorAll('.box--item')
-
-    console.log(this.boxesBounds)
 
     this.addEventListeners()
     requestAnimationFrame(this.update)
@@ -77,17 +76,17 @@ class Interchange {
   }
 
   onMove (evt) {
+
     if (!this.target)
       return
 
     let dirX = this.currentX;
 
+    let oldX = this.currentX
     this.currentX = evt.pageX || evt.touches[0].pageX
     this.currentY = evt.pageY || evt.touches[0].pageY
 
-    dirX = this.currentX - dirX; // Positive or negative transition
-
-    //console.log(dirX)
+    this.directionX = this.getDirection(oldX, this.currentX)
 
     if ( this.draggingCard ) {
       this.hoverBox = this.getHoverBox()
@@ -97,9 +96,9 @@ class Interchange {
 
       let targetIndex = parseInt(this.target.dataset.item)
 
-      if ( this.hoverBox > targetIndex ) {
+      if ( this.hoverBox > targetIndex && this.directionX >= 0 ) {
 
-        this.offsetX = -this.boxesBounds[this.hoverBox].width
+        this.offsetX -= this.boxesBounds[this.hoverBox].width
 
         if ( this.boxes[this.hoverBox].classList.contains('-last') ) {
           this.boxes[this.hoverBox].classList.remove('-last')
@@ -116,9 +115,9 @@ class Interchange {
 
         this.hoverBox = false
 
-      } else if (this.hoverBox < targetIndex && dirX < 0) {
+      } else if (this.hoverBox < targetIndex && this.directionX < 0) {
 
-        /*this.offsetX = this.boxesBounds[this.hoverBox].width
+        this.offsetX = this.boxesBounds[this.hoverBox].width
 
         if ( this.boxes[targetIndex].classList.contains('-last') ) {
           this.boxes[targetIndex].classList.remove('-last')
@@ -134,7 +133,7 @@ class Interchange {
         this.boxes = document.querySelectorAll('.box--item')
         this.boxesBounds = this.getBoxesBoundRects()
 
-        this.hoverBox = false*/
+        this.hoverBox = false
       }
     }
 
@@ -223,12 +222,29 @@ class Interchange {
     let bounds = []
 
     for ( let i = 0; i < elements.length; i++ ) {
-      let info = elements[i].getBoundingClientRect()
+      let rect = elements[i].getBoundingClientRect()
+      let info = Object.assign({}, {
+        top: rect.top,
+        bottom: rect.bottom,
+        left: rect.left,
+        right: rect.right,
+        width: rect.width,
+        height: rect.height
+      })
+
+      info.top += window.scrollY
+      info.bottom += window.scrollY
       info.index = i
       bounds.push(info)
     }
 
     return bounds;
+  }
+
+  getDirection(old, current) {
+    if ( old == current ) return 0
+    if ( old < current ) return 1
+    if ( old > current ) return -1
   }
 }
 
