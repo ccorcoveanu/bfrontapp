@@ -1,0 +1,21 @@
+.button {
+  border: none;
+  border-radius: rem(6);
+  color: $color-button;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: $bold;
+  outline: none;
+
+  padding: rem(13) rem(50) rem(12) rem(50);
+
+  &.-green {
+    color: #fff;
+    background-color: $color-link;
+    transition: background .2s $animation-ease-default;
+
+    &:hover {
+      background-color: $color-link-hover;
+    }
+  }
+}

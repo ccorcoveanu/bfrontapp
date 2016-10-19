@@ -144,6 +144,14 @@ $columns: 20;
     }
   }
 
+  .col-perc-13-20 {
+    width: (100%/20)*13;
+  }
+
+  .col-perc-14-20 {
+    width: (100%/20)*14;
+  }
+
   .col-perc-20-20 {
     width: 100%;
   }

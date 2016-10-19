@@ -6,16 +6,23 @@ import Hamburger from './modules/hamburger'
 import SidebarEvents from './modules/sidebar/events'
 import Interchange from './modules/boxes/interchange'
 import BoxOptions from './modules/boxes/box-options'
+import Datepicker from './modules/datepicker'
 
 window.onload = function() {
-  // Optimizations
-  //ClickSpeed();
+
   let interchange = new Interchange(
     'box--item'
   )
   let boxOptions = new BoxOptions()
-  document.addEventListener('touchstart', function(ev){return;}, {})
 
+  let datepickers = document.querySelectorAll('.kiss--datepicker')
+  if ( datepickers.length ) {
+    let DP = new Datepicker(datepickers)
+  }
+
+  // Optimizations
+  //ClickSpeed();
+  document.addEventListener('touchstart', function(ev){return;}, {})
   // End optimizations
 
   // Sidebar

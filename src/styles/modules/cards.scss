@@ -1,0 +1,44 @@
+// Name: Cards
+// Author: Cristi Corcoveanu (cristi.corcoveanu@gmail.com)
+
+.cards--container {
+  padding: rem(5);
+
+  .-cards {
+    padding: rem(10) 0;
+  }
+}
+
+.card--item {
+  box-shadow: $shadow-default;
+  border-radius: rem(6);
+  margin-bottom: rem(10);
+  padding-left: rem(13);
+
+  &.-green {
+    background-color: $color-link;
+  }
+
+  &.-yellow {
+    background-color: $color-yellow;
+  }
+
+  &.-red {
+    background-color: $color-danger;
+  }
+
+
+  .-content {
+    min-height: rem(210);
+    padding: rem(8);
+  }
+
+  .-info {
+    margin-bottom: rem(10);
+  }
+
+  .-label {
+    font-size: rem(12);
+    line-height: rem(14);
+  }
+}

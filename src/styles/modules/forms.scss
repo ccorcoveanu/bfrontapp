@@ -3,7 +3,8 @@ form {
 }
 
 input[type="text"],
-input[type="password"]
+input[type="password"],
+textarea
 {
   background: #FFF;
   border: 1px solid $color-border;
@@ -11,12 +12,17 @@ input[type="password"]
   color: $color-default;
   font-size: rem(16);
   line-height: rem(18);
-  padding: rem(56) rem(5) rem(5) rem(10);
+  padding: rem(5) rem(5) rem(5) rem(10);
 
   &:focus {
     border-color: $color-fill-green;
     outline: none;
   }
+}
+
+input[type="text"].search--input {
+  padding: rem(12) rem(45) rem(10) rem(20);
+  width: 100%;
 }
 
 .kiss--form {
@@ -35,5 +41,84 @@ input[type="password"]
     position: absolute;
     left: rem(10);
     top: rem(10);
+  }
+}
+
+.form-panel {
+  @extend .clearfix;
+  .-left {
+    float: left;
+    width: 50%;
+
+    &.-last {
+      padding-left: rem(20);
+    }
+  }
+}
+
+.kiss--control {
+  position: relative;
+
+  margin-bottom: rem(15);
+
+  input[type="text"],
+  textarea {
+    border-color: $color-fill-green;
+    width: 100%;
+  }
+
+  textarea,
+  textarea:focus {
+    outline: none;
+    border-radius: rem(6);
+    resize: none;
+  }
+
+  label {
+    display: block;
+    font-size: rem(12);
+    line-height: rem(14);
+  }
+
+  &.-has-additional {
+    @extend .clearfix;
+
+    .-main {
+      float: left;
+      width: 65%;
+    }
+
+    .-additional {
+      float: right;
+      width: 30%;
+
+      /*no label - so leave margin*/
+      margin-top: rem(14);
+    }
+  }
+
+  .icon.-calendar {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+
+    svg,
+    path {
+      fill: $color-link;
+    }
+  }
+
+  &.-has-double {
+    @extend .clearfix;
+    .-first {
+      position: relative;
+      float: left;
+      width: 45%;
+    }
+    .-second {
+      position: relative;
+      float: right;
+      width: 45%;
+    }
   }
 }

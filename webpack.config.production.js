@@ -49,6 +49,11 @@ module.exports = {
       template: path.join(__dirname, 'src/', 'index.html'),
       hash: true,
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src/', 'payments.html'),
+      filename: 'payments.html',
+      hash: true,
+    }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async',
     })
