@@ -53,6 +53,11 @@
       cursor: text;
       display: inline-block;
       font-weight: $bold;
+
+      .-additional-info {
+        display: inline-block;
+        margin-left: rem(20);
+      }
     }
 
     .-controls {
@@ -74,6 +79,7 @@
     transition-property: height;
     transition-duration: .5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
   }
 
   .-thead {
@@ -187,6 +193,12 @@
       padding: 0;
     }
   }
+
+  .demography & {
+    .-content {
+      padding-left: rem(20);
+    }
+  }
 }
 
 // A little inline grid for our boxes
@@ -269,6 +281,19 @@
     padding-right: 0;
   }
 }
+
+.box-content--title {
+  color: $color-box-lite;
+  font-weight: $bold;
+  font-size: rem(16);
+  line-height: rem(21);
+  margin-top: rem(20);
+}
+
+.box-content--information {
+  margin-top: rem(20);
+}
+
 
 .-meter {
 

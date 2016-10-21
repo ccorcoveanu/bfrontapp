@@ -61,6 +61,37 @@ window.onload = function() {
   })
 
   // End hamburger events
+
+  // Befor refactor code
+
+  let boxFormEditElements = document.querySelectorAll('.finfo--block .icon.-pencil');
+
+  for ( let i = 0; i < boxFormEditElements.length; i++ ) {
+    boxFormEditElements[i].addEventListener('click', function(ev) {
+      let toggleEl = this.parentNode.parentNode.parentNode;
+      toggleEl.classList.toggle('-edit-mode');
+    });
+  }
+
+  let boxFormMinimizeElements = document.querySelectorAll('.finfo--block .icon.-minus');
+
+  for ( let i = 0; i < boxFormMinimizeElements.length; i++ ) {
+    boxFormMinimizeElements[i].addEventListener('click', function(ev) {
+      let toggleEl = this.parentNode.parentNode.parentNode;
+      toggleEl.classList.add('-is-closed');
+    });
+  }
+
+  let boxFormMaximizeElements = document.querySelectorAll('.finfo--block .icon.-plus');
+
+  for ( let i = 0; i < boxFormMaximizeElements.length; i++ ) {
+    boxFormMaximizeElements[i].addEventListener('click', function(ev) {
+      let toggleEl = this.parentNode.parentNode.parentNode;
+      toggleEl.classList.remove('-is-closed');
+    });
+  }
+
+
 }
 
 if ( module.hot ) {
