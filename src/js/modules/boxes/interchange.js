@@ -56,6 +56,9 @@ class Interchange {
 
     this.target                   = evt.target.parentNode
     this.targetBCR                = this.target.getBoundingClientRect()
+
+    console.log(this.targetBCR);
+
     this.startX                   = evt.pageX || evt.touches[0].pageX
     this.startY                   = evt.pageY || evt.touches[0].pageY
     this.offsetX                  = 0

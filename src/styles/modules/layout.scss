@@ -275,8 +275,10 @@ a:visited {
 }
 
 .tabs {
+    border-radius: rem(6) rem(6) 0 0;
+    top: 1px;
+    position: relative;
   li a {
-    background-color: $color-link;
     border-radius: rem(6) rem(6) 0 0;
     color: #fff;
     font-size: rem(12);
@@ -284,7 +286,7 @@ a:visited {
     padding: rem(13) rem(20);
 
     &:hover {
-      background-color: $color-link-hover;
+      background-color: #fff;
     }
   }
 }
@@ -310,8 +312,35 @@ a:visited {
 
 .finfo--block {
   margin-bottom: rem(40);
-  .-fb-header {
+  &.-edit-mode {
+      .-fb-header {
+          border-bottom: 1px solid $color-fill-green;
+          .tabs {
+            border: 1px solid $color-fill-green;
+           
+            li a {
+              background-color: #fff;
+              color: $color-fill-green;
 
+              &:hover {
+                background-color: #fff;
+              }
+            }
+          }
+      }
+  }
+  .-fb-header {
+      
+     //Search exception
+    .kiss--form .-search {
+        top: rem(5);
+    }
+    input[type="text"].search--input {
+       padding: rem(6) rem(22) rem(5) rem(10);
+    }
+    .kiss--control {
+        margin-bottom: 0;
+    }
     @extend .clearfix;
     border-bottom: 1px solid $color-border;
     .tabs {
@@ -341,6 +370,21 @@ a:visited {
 
 
     }
+    &.-default-active {
+        border-bottom: 1px solid $color-fill-green;
+        .tabs {
+          border: 1px solid $color-fill-green;
+         
+          li a {
+            background-color: #fff;
+            color: $color-fill-green;
+
+            &:hover {
+              background-color: #fff;
+            }
+          }
+        }
+    }
   }
 
   .-fb-content {
@@ -364,21 +408,32 @@ a:visited {
   &.-is-closed {
 
     margin-bottom: rem(30);
-
+    .-fb-header {
+        border-bottom: 1px solid $color-disabled;
+        &:hover {
+            border-bottom: 1px solid $color-fill-green;
+            .tabs {
+                    border: 1px solid $color-fill-green;
+                    li a {
+                        color: $color-fill-green;
+                    }
+            }
+        }
+    }
     .-fb-content {
       height: 0;
       overflow: hidden;
 
     }
 
-    .tabs {
-      li a {
-        background-color: $color-border;
-        color: #fff;
-        &:hover {
-          background-color: $color-border;
+    &.-edit-mode {
+        .tabs {
+            border: 1px solid $color-disabled;
+          li a {
+            color: $color-disabled;
+            
+          }
         }
-      }
     }
 
     .-actions {
@@ -450,4 +505,43 @@ a:visited {
       padding-right: rem(10);
     }
   }
+}
+
+/* Neuer Fall page*/
+.row {
+    .-force-right {
+        float: right;
+    }
+}
+
+/* Neuer Full */
+.-fb-table {
+    border: 1px solid $color-border;
+    border-radius: 6px;
+    .kiss--control {
+        margin-bottom: 0px;
+    }
+    &--header {
+        width: 100%;
+        display: inline-block;
+        border-bottom: 1px solid $color-border;
+        padding: 5px 15px;
+        
+    }
+    &--row {
+        display: inline-block;
+        width: 100%;
+        padding: 5px 15px;
+        &:hover {
+            background-color: rgba($color-link, 0.3);
+        }
+        .kiss-control {
+            margin-bottom: 0px;
+            padding: 5px 0px;
+        }
+        p {
+            color: $color-black;
+            line-height: rem(22);
+        }
+    }
 }

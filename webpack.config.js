@@ -49,6 +49,12 @@ module.exports = {
       hash: true,
       inject: 'head'
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'neuer_fall.html'),
+      filename: 'neuer_fall.html',
+      hash: true,
+      inject: 'head'
+    }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'sync',
     })
