@@ -27,8 +27,10 @@
         </div>
         <div class="menu--container col-7-20">
             <div class="hamburger--menu">
-                <a id="hamburger--link" class="hamburger--link" style="touch-action: none;">
-                    <i class="icon -hamburger"></i>
+                <a id="hamburger--link" class="" style="touch-action: none;">
+                    <i class="icon -menu-burger"><svg>
+                        <use xlink:href="images/common.svg#menu-burger"></use>
+                    </svg></i>
                 </a>
                 <ul class="popup--menu">
                     <li>
@@ -273,7 +275,7 @@
         </div>
     </div>
 </header>
-<main class="main demography">
+<main class="main neuer_fall">
     <section class="site--content container">
         <!-- Start Content -->
         <div class="box--item -active">
@@ -282,20 +284,14 @@
             </div>
             <div class="-content row">
                 
-                <div class="row box-content--information">
+                <div class="row">
                     <div class="col-perc-20-20">
                         <div class="finfo--block">
                             <div class="-fb-header -default-active">
                                 <ul class="tabs">
                                     <li><a href="javascript:;">PERSONENDATEN</a></li>
                                 </ul>
-                                <form class="kiss--form -force-right col-perc-6-20" action="" method="get">
-                                    <div class="kiss--control">
-                                        <i class="icon -back">
-                                            <svg>
-                                                <use xlink:href="images/common.svg#back"></use>
-                                            </svg>
-                                        </i>
+                                <form class="kiss--form -force-right -search-form" action="" method="get">
                                         <input type="text" name="search" class="form--input search--input" placeholder="Suche" value="" />
                                         <i class="icon -search">
                                             <svg>
@@ -309,47 +305,47 @@
                                 <div class="col-perc-7-20">
                                     <form class="kiss--form" method="get" action="">
                                         <div class="kiss--checkbox kiss--control">
-                                            <label for="option--1" class="kiss--label">ERZIEHUNGSBERATUNG</label>
-                                            <input type="checkbox" name="option--1"/>
-                                            <label for="option--1"> <span></span> <strong>EB</strong> </label>
+                                            <div class="kiss--label label">ERZIEHUNGSBERATUNG</div>
+                                            <input type="checkbox" name="option--1" id="option--1"/>
+                                            <label for="option--1"><span></span> EB</label>
                                         </div>
                                         <div class="kiss--checkbox kiss--control">
-                                            <label for="option--2" class="kiss--label">AMBULANTE KINDER- UND JUGENDPSYCHIATRIE</label>
-                                            <input type="checkbox" name="option--2"/>
-                                            <label for="option--2"> <span></span> <strong>KJP</strong> </label>
+                                            <div class="kiss--label label">AMBULANTE KINDER- UND JUGENDPSYCHIATRIE</div>
+                                            <input type="checkbox" name="option--2" id="option--2"/>
+                                            <label for="option--2"><span></span> KJP</label>
                                         </div>
                                         <div class="kiss--checkbox kiss--control">
-                                            <label for="option--3" class="kiss--label">PSYCHOLOGISCHE ERSTE HILFE</label>
-                                            <input type="checkbox" name="option--3"/>
-                                            <label for="option--3"> <span></span> <strong>PEH</strong> </label>
+                                            <div class="kiss--label label">PSYCHOLOGISCHE ERSTE HILFE</div>
+                                            <input type="checkbox" name="option--3" id="option--3"/>
+                                            <label for="option--3"><span></span> PEH</label>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="col-perc-7-20">
                                     <form class="kiss--form" method="get" action="">
                                         <div class="kiss--checkbox kiss--control">
-                                            <label for="option--4" class="kiss--label">STANDARDISIERTES ABKLÄRUNGSVERFAHREN</label>
-                                            <input type="checkbox" name="option--4"/>
-                                            <label for="option--4"> <span></span> <strong>SAV</strong> </label>
+                                            <div class="kiss--label label">STANDARDISIERTES ABKLÄRUNGSVERFAHREN</div>
+                                            <input type="checkbox" name="option--4" id="option--4"/>
+                                            <label for="option--4"><span></span> SAV</label>
                                         </div>
                                         <div class="kiss--checkbox kiss--control">
-                                            <label for="option--5" class="kiss--label">SCHULPSZCHOLOGISCHER DIENST</label>
-                                            <input type="checkbox" name="option--5"/>
-                                            <label for="option--5"> <span></span> <strong>SPD</strong> </label>
+                                            <div class="kiss--label label">SCHULPSZCHOLOGISCHER DIENST</div>
+                                            <input type="checkbox" name="option--5" id="option--5"/>
+                                            <label for="option--5"><span></span> SPD</label>
                                         </div>
                                         <div class="kiss--checkbox kiss--control">
-                                            <label for="option--6" class="kiss--label">SCHULKLASSENPROJEKT</label>
-                                            <input type="checkbox" name="option--6"/>
-                                            <label for="option--6"> <span class="-has-error"></span> <strong>SKL</strong> </label>
+                                            <div class="kiss--label label">SCHULKLASSENPROJEKT</div>
+                                            <input type="checkbox" name="option--6" id="option--6"/>
+                                            <label for="option--6"><span class="-has-error"></span>SKL</label>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="col-perc-6-20">
                                     <form class="kiss--form" method="get" action="">
                                         <div class="kiss--checkbox kiss--control">
-                                            <label for="option--7" class="kiss--label">PROJEKT CALYPSO</label>
-                                            <input type="checkbox" name="option--7"/>
-                                            <label for="option--7"> <span></span> <strong>PRJ</strong> </label>
+                                            <div for="option--7" class="kiss--label label">PROJEKT CALYPSO</div>
+                                            <input type="checkbox" name="option--7" id="option--7" />
+                                            <label for="option--7"><span></span>PRJ</label>
                                         </div>
                                     </form>
                                 </div>
@@ -362,51 +358,30 @@
                                 <ul class="tabs">
                                     <li><a href="javascript:;">PERSONENSUCHE</a></li>
                                 </ul>
-                                <div class="-actions">
-                                    <i class="icon -pencil">
-                                        <svg>
-                                            <use xlink:href="images/common.svg#pencil"></use>
-                                        </svg>
-                                    </i>
-                                    <i class="icon -minus">
-                                        <svg>
-                                            <use xlink:href="images/common.svg#minus"></use>
-                                        </svg>
-                                    </i>
-                                    <i class="icon -plus">
-                                        <svg>
-                                            <use xlink:href="images/common.svg#plus"></use>
-                                        </svg>
-                                    </i>
-                                    <i class="icon -maximize">
-                                        <svg>
-                                            <use xlink:href="images/common.svg#maximize"></use>
-                                        </svg>
-                                    </i>
-                                </div>
+
                             </div>
                             
                             <div class="-fb-content">
                                 <form class="kiss--form" method="get" action="">
                                     <div class="col-perc-10-20">
                                         <div class="kiss--control">
-                                            <label for="relationship" class="kiss--label">NAME</label>
-                                            <input type="text" value="Simina" name="relationship" class="-fb-input" />
+                                            <label for="first_name" class="kiss--label">NAME</label>
+                                            <input type="text" value="Simina" name="first_name" id="first_name" class="-fb-input" />
                                             <span class="-fb-info">Simina</span>
                                         </div>
                                         <div class="kiss--control">
-                                            <label for="relationship" class="kiss--label">VORNAME</label>
-                                            <input type="text" value="Cristian" name="relationship" class="-fb-input" />
+                                            <label for="last_name" class="kiss--label">VORNAME</label>
+                                            <input type="text" value="Cristian" name="last_name" id="last_name" class="-fb-input" />
                                             <span class="-fb-info">Cristian</span>
                                         </div>
                                         <div class="kiss--control">
-                                            <label for="relationship" class="kiss--label">STRASSE</label>
-                                            <input type="text" value="" name="relationship" class="-fb-input" />
+                                            <label for="street" class="kiss--label">STRASSE</label>
+                                            <input type="text" value="" name="street" id="street" class="-fb-input" />
                                             <span class="-fb-info"></span>
                                         </div>
                                         <div class="kiss--control">
-                                            <label for="relationship" class="kiss--label">PLZ/ ORT</label>
-                                            <input type="text" value="" name="relationship" class="-fb-input" />
+                                            <label for="plz" class="kiss--label">PLZ/ ORT</label>
+                                            <input type="text" value="" name="plz" id="plz" class="-fb-input" />
                                             <span class="-fb-info"></span>
                                         </div>
                                     </div>
@@ -415,7 +390,7 @@
                                         <div class="kiss--control">
                                             <div class="-first">
                                                 <label for="start-date" class="kiss--label">Start date</label>
-                                                <input type="text" value="25.09.2010" name="start-date" class="kiss--datepicker" />
+                                                <input type="text" value="25.09.2010" name="start-date" id="start-date" class="kiss--datepicker" />
                                                 <i class="icon -calendar">
                                                     <svg>
                                                         <use xlink:href="images/common.svg#calendar"></use>
@@ -424,18 +399,16 @@
                                             </div>
                                         </div>
                                         <div class="kiss--control">
-                                            <label for="relationship" class="kiss--label">NATIONALITÄT</label>
-                                            <input type="text" value="" name="nationalitat" class="-fb-input" />
+                                            <label for="nationalitat" class="kiss--label">NATIONALITÄT</label>
+                                            <input type="text" value="" name="nationalitat" id="nationalitat" class="-fb-input" />
                                             <span class="-fb-info"></span>
                                         </div>
-                                        <div class="kiss--checkbox kiss--control">
-                                            <label for="hidden" class="kiss--label">.</label>
-                                            <input type="checkbox" name="option--8"/>
+                                        <div class="kiss--checkbox kiss--control -no-header">
+                                            <input type="checkbox" name="option--8" id="option--8"/>
                                             <label for="option--8"> <span></span> auch in Einiwohnerkontrolle (EWK) </label>
                                         </div>
-                                        <div class="kiss--checkbox kiss--control">
-                                            <label for="hidden" class="kiss--label">.</label>
-                                            <input type="checkbox" name="option--9"/>
+                                        <div class="kiss--checkbox kiss--control -no-header">
+                                            <input type="checkbox" name="option--9" id="option--9"/>
                                             <label for="option--9"> <span></span> nur Fallträger/ innen </label>
                                         </div>
                                     </div>
@@ -443,7 +416,7 @@
                                         <div class="kiss--control">
                                             <div class="-second">
                                                 <label for="end-date" class="kiss--label">End date</label>
-                                                <input type="text" value="25.09.2010" name="end-date" class="kiss--datepicker" />
+                                                <input type="text" value="25.09.2010" name="end-date" id="end-date" class="kiss--datepicker" />
                                                 <i class="icon -calendar">
                                                     <svg>
                                                         <use xlink:href="images/common.svg#calendar"></use>
@@ -452,19 +425,18 @@
                                             </div>
                                         </div>
                                         <div class="kiss--control">
-                                            <label for="relationship" class="kiss--label">VERSICHERTEN NUMMER</label>
-                                            <input type="text" value="" name="nummer" class="-fb-input" />
+                                            <label for="nummer" class="kiss--label">VERSICHERTEN NUMMER</label>
+                                            <input type="text" value="" name="nummer" id="nummer" class="-fb-input" />
                                             <span class="-fb-info"></span>
                                         </div>
-                                        <div class="kiss--checkbox kiss--control">
-                                            <label for="hidden" class="kiss--label">.</label>
-                                            <input type="checkbox" name="option--10"/>
+                                        <div class="kiss--checkbox kiss--control -no-header">
+                                            <input type="checkbox" name="option--10" id="option--10"/>
                                             <label for="option--10"> <span></span> auch ähnliche Personen anzeigen </label>
                                         </div>
                                     </div>
                                 </form>
                                 <div class="col-perc-20-20">
-                                    <div class="-fb-table">
+                                    <div class="-fb-table kiss--form">
                                         <div class="-fb-table--header">
                                             <div class="col-1-20 kiss--control">
                                                 <label class="kiss--label">FT</label>
@@ -498,218 +470,148 @@
                                             </div>
                                         </div>
                                         <div class="-fb-table--row">
-                                            <div class="kiss--form">
+                                            <div class="kiss--form" action="" method="get">
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--11"/>
+                                                        <input type="checkbox" name="option--11" id="option--11"/>
                                                         <label for="option--11"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--12"/>
+                                                        <input type="checkbox" name="option--12" id="option--12"/>
                                                         <label for="option--12"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--13"/>
+                                                        <input type="checkbox" name="option--13" id="option--13"/>
                                                         <label for="option--13"> <span></span></label>
                                                     </div>
                                                 </div>
-                                                <div class="col-3-20">
-                                                    <p>Simina</p>
-                                                </div>
-                                                <div class="col-3-20">
-                                                    <p>Cristian</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>Sibiu</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>M</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>32</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>21.10.1984</p>
-                                                </div>
-                                                <div class="col-perc-3-20">
-                                                    <p>19</p>
-                                                </div>
+                                                <div class="col-3-20">Simina</div>
+                                                <div class="col-3-20">Cristian</div>
+                                                <div class="col-2-20">Sibiu</div>
+                                                <div class="col-1-20">M</div>
+                                                <div class="col-1-20">32</div>
+                                                <div class="col-2-20">21.10.1984</div>
+                                                <div class="col-perc-3-20">19</div>
                                             </div>
                                         </div>
                                         <div class="-fb-table--row">
-                                            <div class="kiss--form">
+                                            <div class="kiss--form" action="" method="get">
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--14"/>
+                                                        <input type="checkbox" name="option--14" id="option--14"/>
                                                         <label for="option--14"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--15"/>
+                                                        <input type="checkbox" name="option--15" id="option--15"/>
                                                         <label for="option--15"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--16"/>
+                                                        <input type="checkbox" name="option--16" id="option--16"/>
                                                         <label for="option--16"> <span></span></label>
                                                     </div>
                                                 </div>
-                                                <div class="col-3-20">
-                                                    <p>Simina</p>
-                                                </div>
-                                                <div class="col-3-20">
-                                                    <p>Cristian</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>Sibiu</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>M</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>32</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>21.10.1984</p>
-                                                </div>
-                                                <div class="col-perc-3-20">
-                                                    <p>1988783412746</p>
-                                                </div>
+                                                <div class="col-3-20">Simina</div>
+                                                <div class="col-3-20">Cristian</div>
+                                                <div class="col-2-20">Sibiu</div>
+                                                <div class="col-1-20">M</div>
+                                                <div class="col-1-20">32</div>
+                                                <div class="col-2-20">21.10.1984</div>
+                                                <div class="col-perc-3-20">19</div>
                                             </div>
                                         </div>
                                         <div class="-fb-table--row">
-                                            <div class="kiss--form">
+                                            <div class="kiss--form" action="" method="get">
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--17"/>
+                                                        <input type="checkbox" name="option--17" id="option--17"/>
                                                         <label for="option--17"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--18"/>
+                                                        <input type="checkbox" name="option--18" id="option--18"/>
                                                         <label for="option--18"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--19"/>
+                                                        <input type="checkbox" name="option--19" id="option--19"/>
                                                         <label for="option--19"> <span></span></label>
                                                     </div>
                                                 </div>
-                                                <div class="col-3-20">
-                                                    <p>Simina</p>
-                                                </div>
-                                                <div class="col-3-20">
-                                                    <p>Cristian</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>Sibiu</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>M</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>32</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>21.10.1984</p>
-                                                </div>
-                                                <div class="col-perc-3-20">
-                                                    <p>1988783412746</p>
-                                                </div>
+                                                <div class="col-3-20">Simina</div>
+                                                <div class="col-3-20">Cristian</div>
+                                                <div class="col-2-20">Sibiu</div>
+                                                <div class="col-1-20">M</div>
+                                                <div class="col-1-20">32</div>
+                                                <div class="col-2-20">21.10.1984</div>
+                                                <div class="col-perc-3-20">19</div>
                                             </div>
                                         </div>
                                         <div class="-fb-table--row">
-                                            <div class="kiss--form">
+                                            <div class="kiss--form" action="" method="get">
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--20"/>
+                                                        <input type="checkbox" name="option--20" id="option--20"/>
                                                         <label for="option--20"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--21"/>
+                                                        <input type="checkbox" name="option--21" id="option--21"/>
                                                         <label for="option--21"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--22"/>
+                                                        <input type="checkbox" name="option--22" id="option--22"/>
                                                         <label for="option--22"> <span></span></label>
                                                     </div>
                                                 </div>
-                                                <div class="col-3-20">
-                                                    <p>Simina</p>
-                                                </div>
-                                                <div class="col-3-20">
-                                                    <p>Cristian</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>Sibiu</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>M</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>32</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>21.10.1984</p>
-                                                </div>
-                                                <div class="col-perc-3-20">
-                                                    <p>19</p>
-                                                </div>
+                                                <div class="col-3-20">Simina</div>
+                                                <div class="col-3-20">Cristian</div>
+                                                <div class="col-2-20">Sibiu</div>
+                                                <div class="col-1-20">M</div>
+                                                <div class="col-1-20">32</div>
+                                                <div class="col-2-20">21.10.1984</div>
+                                                <div class="col-perc-3-20">19</div>
                                             </div>
                                         </div>
                                         <div class="-fb-table--row">
-                                            <div class="kiss--form">
+                                            <div class="kiss--form" action="" method="get">
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--23"/>
+                                                        <input type="checkbox" name="option--23" id="option--23"/>
                                                         <label for="option--23"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--24"/>
+                                                        <input type="checkbox" name="option--24" id="option--24"/>
                                                         <label for="option--24"> <span></span></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-1-20">
                                                     <div class="kiss--checkbox kiss--control">
-                                                        <input type="checkbox" name="option--25"/>
+                                                        <input type="checkbox" name="option--25" id="option--25"/>
                                                         <label for="option--25"> <span></span></label>
                                                     </div>
                                                 </div>
-                                                <div class="col-3-20">
-                                                    <p>Simina</p>
-                                                </div>
-                                                <div class="col-3-20">
-                                                    <p>Cristian</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>Sibiu</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>M</p>
-                                                </div>
-                                                <div class="col-1-20">
-                                                    <p>32</p>
-                                                </div>
-                                                <div class="col-2-20">
-                                                    <p>21.10.1984</p>
-                                                </div>
-                                                <div class="col-perc-3-20">
-                                                    <p>19</p>
-                                                </div>
+                                                <div class="col-3-20">Simina</div>
+                                                <div class="col-3-20">Cristian</div>
+                                                <div class="col-2-20">Sibiu</div>
+                                                <div class="col-1-20">M</div>
+                                                <div class="col-1-20">32</div>
+                                                <div class="col-2-20">21.10.1984</div>
+                                                <div class="col-perc-3-20">19</div>
                                             </div>
                                         </div>
                                     </div>

@@ -190,4 +190,13 @@
     width: 20px;
     height: 21px;
   }
+
+  &.-menu-burger {
+    width: 30px;
+    height: 24px;
+
+    svg, path {
+      fill: $color-fill-green;
+    }
+  }
 }

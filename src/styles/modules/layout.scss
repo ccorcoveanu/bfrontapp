@@ -179,6 +179,7 @@ a:visited {
 .hamburger--menu {
   display: inline-block;
   position: relative;
+  top: 3px;
 
   @include below($big-tablet) {
     position: unset;
@@ -275,15 +276,18 @@ a:visited {
 }
 
 .tabs {
-    border-radius: rem(6) rem(6) 0 0;
-    top: 1px;
-    position: relative;
+  border-radius: rem(6) rem(6) 0 0;
+  top: 1px;
+  position: relative;
+  border: 1px solid $color-disabled;
+
   li a {
     border-radius: rem(6) rem(6) 0 0;
-    color: #fff;
+    color: $color-disabled;
     font-size: rem(12);
+    font-weight: $bold;
     line-height: rem(12);
-    padding: rem(13) rem(20);
+    padding: rem(14) rem(20);
 
     &:hover {
       background-color: #fff;
@@ -314,13 +318,14 @@ a:visited {
   margin-bottom: rem(40);
   &.-edit-mode {
       .-fb-header {
-          border-bottom: 1px solid $color-fill-green;
+          border-bottom: 1px solid $color-disabled;
           .tabs {
-            border: 1px solid $color-fill-green;
+            border: 1px solid $color-disabled;
            
             li a {
               background-color: #fff;
-              color: $color-fill-green;
+              color: $color-disabled;
+              font-weight: $bold;
 
               &:hover {
                 background-color: #fff;
@@ -330,22 +335,12 @@ a:visited {
       }
   }
   .-fb-header {
-      
-     //Search exception
-    .kiss--form .-search {
-        top: rem(5);
-    }
-    input[type="text"].search--input {
-       padding: rem(6) rem(22) rem(5) rem(10);
-    }
-    .kiss--control {
-        margin-bottom: 0;
-    }
+
     @extend .clearfix;
-    border-bottom: 1px solid $color-border;
+    border-bottom: 1px solid $color-disabled;
+
     .tabs {
       float: left;
-
     }
 
     .-actions {
@@ -370,7 +365,9 @@ a:visited {
 
 
     }
-    &.-default-active {
+
+    &.-default-active,
+    &:hover {
         border-bottom: 1px solid $color-fill-green;
         .tabs {
           border: 1px solid $color-fill-green;
@@ -384,6 +381,13 @@ a:visited {
             }
           }
         }
+    }
+
+
+    .kiss--form.-search-form {
+      position: relative;
+      bottom: 5px;
+      width: 340px;
     }
   }
 
@@ -516,32 +520,34 @@ a:visited {
 
 /* Neuer Full */
 .-fb-table {
-    border: 1px solid $color-border;
-    border-radius: 6px;
-    .kiss--control {
-        margin-bottom: 0px;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  .kiss--control {
+    margin-bottom: 0px;
+  }
+  &--header {
+    border-bottom: 1px solid $color-border;
+    padding: 5px 15px;
+    @extend .clearfix;
+  }
+  &--row {
+    @extend .clearfix;
+    width: 100%;
+    padding: 5px 15px;
+    font-size: rem(14);
+    line-height: rem(30);
+    color: #000;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba($color-link, 0.3);
     }
-    &--header {
-        width: 100%;
-        display: inline-block;
-        border-bottom: 1px solid $color-border;
-        padding: 5px 15px;
-        
+    .kiss-control {
+      margin-bottom: 0px;
+      padding: 5px 0px;
     }
-    &--row {
-        display: inline-block;
-        width: 100%;
-        padding: 5px 15px;
-        &:hover {
-            background-color: rgba($color-link, 0.3);
-        }
-        .kiss-control {
-            margin-bottom: 0px;
-            padding: 5px 0px;
-        }
-        p {
-            color: $color-black;
-            line-height: rem(22);
-        }
+    p {
+      color: $color-black;
+      line-height: rem(22);
     }
+  }
 }

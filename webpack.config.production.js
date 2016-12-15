@@ -59,6 +59,11 @@ module.exports = {
       filename: 'demography.html',
       hash: true,
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src/', 'demography.html'),
+      filename: 'neuer_fall.html',
+      hash: true,
+    }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async',
     })
