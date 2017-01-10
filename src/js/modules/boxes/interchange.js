@@ -31,6 +31,10 @@ class Interchange {
     this.boxesBounds = this.getBoxesBoundRects()
     this.boxes = document.querySelectorAll('.box--item')
 
+
+    // Resize items
+    this._initResizer();
+
     this.addEventListeners()
     requestAnimationFrame(this.update)
   }
@@ -56,9 +60,6 @@ class Interchange {
 
     this.target                   = evt.target.parentNode
     this.targetBCR                = this.target.getBoundingClientRect()
-
-    console.log(this.targetBCR);
-
     this.startX                   = evt.pageX || evt.touches[0].pageX
     this.startY                   = evt.pageY || evt.touches[0].pageY
     this.offsetX                  = 0
@@ -157,6 +158,9 @@ class Interchange {
   }
 
   onEnd (evt) {
+    if ( this.resetTarget ) {
+      this.resizeStop();
+    }
     if (!this.target)
       return
 
@@ -248,6 +252,113 @@ class Interchange {
     if ( old == current ) return 0
     if ( old < current ) return 1
     if ( old > current ) return -1
+  }
+
+  _initResizer() {
+    this.isResizing = false
+    this.elementMatrix = this._buildElementMatrix();
+
+    this.resizeStart = this.resizeStart.bind(this);
+    this.resizeStop = this.resizeStop.bind(this);
+    this.resize = this.resize.bind(this);
+
+    let resizers = document.querySelectorAll('.box--item .-content .-resizer');
+    document.addEventListener('touchmove', this.resize);
+    document.addEventListener('mousemove', this.resize);
+    for ( let i = 0; i < resizers.length; i++ ) {
+      resizers[i].addEventListener('touchstart', this.resizeStart);
+      resizers[i].addEventListener('mousedown', this.resizeStart);
+
+
+
+      resizers[i].addEventListener('touchend', this.resizeStop);
+      resizers[i].addEventListener('mouseup', this.resizeStop);
+    }
+  }
+
+  _buildElementMatrix() {
+
+    let matrix = []
+    let index = 0
+
+    matrix[index] = []
+
+    for ( let i = 0; i < this.boxes.length; i++ ) {
+      if ( !matrix[index].length ) {
+        matrix[index].push(this.boxes[i])
+        this.boxes[i].dataset.row = index;
+        this.boxes[i].dataset.column = matrix[index].length;
+        continue
+      }
+
+      let _currentIndexColumnsCount = 0
+      for ( let j = 0; j < matrix[index].length; j++ ) {
+        _currentIndexColumnsCount += this._getElementNumberOfColumns(matrix[index][j])
+      }
+
+      let _currentItemColumnCount = this._getElementNumberOfColumns(this.boxes[i])
+      if ( _currentIndexColumnsCount + _currentItemColumnCount > 20 ) {
+        index++;
+        matrix[index] = [];
+      }
+
+      matrix[index].push(this.boxes[i])
+      this.boxes[i].dataset.row = index;
+      this.boxes[i].dataset.column = matrix[index].length - 1;
+    }
+    return matrix;
+  }
+
+  _getElementNumberOfColumns(element) {
+    let gridClass = element.className.match(/bgrid-\d+-\d+/)
+    let gridArr = gridClass[0].split('-');
+
+    return parseInt(gridArr[1]);
+  }
+
+  initDropzoneForResize() {
+    this.overlay.style.position = 'relative'
+    this.overlay.style.width = this.resizeTargetBCR.width + 'px'
+    this.overlay.style.height = this.resizeTargetBCR.height + 'px'
+    this.overlay.parentNode.insertBefore(this.overlay, this.resizeTarget)
+  }
+
+  // Resize event
+  resizeStart(evt) {
+    document.querySelector('.dnd-grid--container').classList.add('js-selection-disabled')
+    this.resizeTarget = evt.target.parentNode.parentNode
+    this.resizeTargetBCR = this.resizeTarget.getBoundingClientRect()
+    this.resizeTarget.style.opacity = .7
+
+    console.log(this.boxesBounds[this.resizeTarget.dataset.item].top)
+    this.resizeTarget.style.left = '0px'
+    this.resizeTarget.style.zIndex = 260
+    this.resizeTarget.style.position = 'absolute'
+
+    this.resizeStartX = evt.clientX
+    this.resizeStartWidth = this.boxesBounds[this.resizeTarget.dataset.item].width
+
+    this.initDropzoneForResize()
+  }
+
+  resize(evt) {
+
+    if ( !this.resizeTarget ) return
+
+    this.resizeTarget.style.width = (this.resizeStartWidth + evt.clientX - this.resizeStartX) + 'px';
+  }
+
+  resizeStop(evt) {
+    if ( !this.resizeTarget ) return
+
+    this.resizeTarget.style.opacity = 1
+    this.overlay.style.position = 'absolute'
+    this.resizeTarget.style.position = 'relative'
+    this.resizeTarget = null
+
+
+
+    document.querySelector('.dnd-grid--container').classList.remove('js-selection-disabled')
   }
 }
 

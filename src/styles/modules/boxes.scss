@@ -87,6 +87,21 @@
     transition-duration: .5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
+    position: relative;
+
+    .-resizer {
+      display: inline-block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 45px;
+      width: 45px;
+      background: #fff;
+      border: 1px solid #A8B30A;
+      z-index: 100;
+      transform: rotate(45deg) translate(32px, 0px);
+      cursor: w-resize;
+    }
   }
 
   .-thead {
@@ -215,6 +230,8 @@
   vertical-align: top;
   margin-right: rem($pad);
   white-space: nowrap;
+
+  min-width: (100%/20)*1 - 1;
   &:last-of-type,
   &.-last {
     margin-right: 0;
