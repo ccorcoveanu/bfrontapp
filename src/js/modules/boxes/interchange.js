@@ -257,6 +257,7 @@ class Interchange {
   _initResizer() {
     this.isResizing = false
     this.elementMatrix = this._buildElementMatrix();
+    this.containerFullWidth = document.querySelector('.dnd-grid--container').getBoundingClientRect().width;
 
     this.resizeStart = this.resizeStart.bind(this);
     this.resizeStop = this.resizeStop.bind(this);
@@ -287,7 +288,7 @@ class Interchange {
       if ( !matrix[index].length ) {
         matrix[index].push(this.boxes[i])
         this.boxes[i].dataset.row = index;
-        this.boxes[i].dataset.column = matrix[index].length;
+        this.boxes[i].dataset.column = matrix[index].length - 1;
         continue
       }
 
@@ -316,6 +317,10 @@ class Interchange {
     return parseInt(gridArr[1]);
   }
 
+  _getElementBgridClass(element) {
+    return element.className.match(/bgrid-\d+-\d+/)
+  }
+
   initDropzoneForResize() {
     this.overlay.style.position = 'relative'
     this.overlay.style.width = this.resizeTargetBCR.width + 'px'
@@ -330,8 +335,7 @@ class Interchange {
     this.resizeTargetBCR = this.resizeTarget.getBoundingClientRect()
     this.resizeTarget.style.opacity = .7
 
-    console.log(this.boxesBounds[this.resizeTarget.dataset.item].top)
-    this.resizeTarget.style.left = '0px'
+    this.resizeTarget.style.left = this._calculateResizeLeftOffset() + 'px'
     this.resizeTarget.style.zIndex = 260
     this.resizeTarget.style.position = 'absolute'
 
@@ -339,26 +343,95 @@ class Interchange {
     this.resizeStartWidth = this.boxesBounds[this.resizeTarget.dataset.item].width
 
     this.initDropzoneForResize()
+
+    this.resize(evt)
   }
 
   resize(evt) {
-
     if ( !this.resizeTarget ) return
-
     this.resizeTarget.style.width = (this.resizeStartWidth + evt.clientX - this.resizeStartX) + 'px';
   }
 
   resizeStop(evt) {
     if ( !this.resizeTarget ) return
 
+    this._finishResizingAndResetBoxes()
+
     this.resizeTarget.style.opacity = 1
     this.overlay.style.position = 'absolute'
     this.resizeTarget.style.position = 'relative'
+    this.resizeTarget.style.left = ''
+    this.resizeTarget.style.width = ''
     this.resizeTarget = null
 
-
-
     document.querySelector('.dnd-grid--container').classList.remove('js-selection-disabled')
+    this.boxesBounds = this.getBoxesBoundRects()
+  }
+
+  _calculateResizeLeftOffset() {
+    let currentRow = parseInt(this.resizeTarget.dataset.row)
+    let currentCol = parseInt(this.resizeTarget.dataset.column)
+    let rowArray = this.elementMatrix[currentRow]
+
+    let offset = 0
+    for ( let i = 0; i < currentCol; i++ ) {
+      offset += this.boxesBounds[rowArray[i].dataset.item].width + 10
+    }
+
+    return offset
+  }
+
+  _finishResizingAndResetBoxes() {
+    const maxColumns = 16;
+    let currentRow = parseInt(this.resizeTarget.dataset.row)
+    let currentCol = parseInt(this.resizeTarget.dataset.column)
+
+    let rowArray = this.elementMatrix[currentRow]
+    let currentElementWidth = Math.round(this.resizeTarget.style.width.substring(0, this.resizeTarget.style.width.length -2)) + 10
+
+    let colWidth = this.containerFullWidth / 20;
+    let columnsToSet = Math.round(currentElementWidth / colWidth)
+
+    console.log(columnsToSet)
+
+    if ( columnsToSet > maxColumns ) columnsToSet = maxColumns
+
+    let colDiff = columnsToSet - this._getElementNumberOfColumns(this.resizeTarget)
+
+    console.log(colDiff)
+
+    if ( colDiff > 0 ) {
+      for ( let i = currentCol + 1; i < rowArray.length; i++ ) {
+
+        if ( colDiff <= 0 ) break
+
+        if ( rowArray[i] !== undefined ) {
+          let _nrOfColsForCurrentIndex = this._getElementNumberOfColumns(rowArray[i])
+          if ( _nrOfColsForCurrentIndex < 3 ) continue
+
+          let _columnsToSetForCurrentIndex = _nrOfColsForCurrentIndex - colDiff;
+          if ( _columnsToSetForCurrentIndex < 2 ) {
+            _columnsToSetForCurrentIndex = 2
+          }
+
+          colDiff -= _columnsToSetForCurrentIndex
+
+          rowArray[i].classList.remove(this._getElementBgridClass(rowArray[i]))
+          rowArray[i].classList.add('bgrid-' + _columnsToSetForCurrentIndex + '-20')
+        }
+      }
+    } else {
+      // Split the remaining space between the rest of the items
+      let remainingCols = Math.abs(colDiff)
+      let _nrOfColsForCurrentIndex = this._getElementNumberOfColumns(rowArray[currentCol + 1])
+      let _columnsToSetForCurrentIndex = remainingCols + _nrOfColsForCurrentIndex
+      rowArray[currentCol + 1].classList.remove(this._getElementBgridClass(rowArray[currentCol + 1]))
+      rowArray[currentCol + 1].classList.add('bgrid-' + _columnsToSetForCurrentIndex + '-20')
+    }
+
+    let classToRemove1 = this._getElementBgridClass(this.resizeTarget)
+    this.resizeTarget.classList.remove(classToRemove1)
+    this.resizeTarget.classList.add('bgrid-' + columnsToSet + '-20')
   }
 }
 

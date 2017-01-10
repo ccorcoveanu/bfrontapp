@@ -235,12 +235,21 @@
   &:last-of-type,
   &.-last {
     margin-right: 0;
+
+    &:after {
+      content: '';
+      @extend .clearfix;
+    }
   }
 
   [class*='col-'] {
     text-overflow: ellipsis;
     overflow: hidden;
   }
+}
+
+.bgrid-2-20 {
+  width: (100%/20)*2 - 1;
 }
 
 .bgrid-3-20 {
@@ -295,6 +304,14 @@
     padding-right: 0;
   }
 }
+.bgrid-8-20 {
+  width: (100%/20)*8 - 1;
+}
+
+.bgrid-9-20 {
+  width: (100%/20)*9 - 1;
+}
+
 .bgrid-10-20 {
   width: (100%/20)*10 - 1;
 
@@ -304,6 +321,38 @@
     margin: 0 rem(10) rem(40) 0;
     padding-right: 0;
   }
+}
+
+.bgrid-11-20 {
+  width: (100%/20)*11 - 1;
+}
+
+.bgrid-12-20 {
+  width: (100%/20)*12 - 1;
+}
+
+.bgrid-13-20 {
+  width: (100%/20)*13 - 1;
+}
+
+.bgrid-14-20 {
+  width: (100%/20)*14 - 1;
+}
+
+.bgrid-15-20 {
+  width: (100%/20)*15 - 1;
+}
+
+.bgrid-16-20 {
+  width: (100%/20)*16 - 1;
+}
+
+.bgrid-17-20 {
+  width: (100%/20)*17 - 1;
+}
+
+.bgrid-18-20 {
+  width: (100%/20)*18 - 1;
 }
 
 .box-content--title {
