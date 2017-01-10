@@ -60,7 +60,7 @@ module.exports = {
       hash: true,
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src/', 'demography.html'),
+      template: path.join(__dirname, 'src/', 'neuer_fall.html'),
       filename: 'neuer_fall.html',
       hash: true,
     }),
